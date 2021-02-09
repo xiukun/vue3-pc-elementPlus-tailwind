@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-03 10:32:41
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-09 09:56:41
+ * @LastEditTime: 2021-02-09 13:15:14
 -->
 <template>
     <div class="login-register container" :class="{'sign-up-mode':signUpMode}">
@@ -219,7 +219,7 @@ export default defineComponent({
 </script>
 <style  scoped>
 .container {
-    position: relative;
+    /* position: relative; */
     width: 100%;
     background-color: #fff;
     min-height: 100vh;
