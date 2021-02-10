@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-09 11:25:49
+ * @LastEditTime: 2021-02-09 16:12:21
 -->
 <template>
     <div class='layout flex h-screen'>
@@ -15,7 +15,7 @@
                 "absolute z-30": layout.menubar.status === 2, 
             }'>
             <div class='layout-sidebar-logo flex h-12 relative flex-center shadow-lg'>
-                <img src='~@/assets/logo.png' class='w-8 h-8'>
+                <img src='~@/assets/logo.png' class='object-contain w-8 h-8'>
                 {{ layout.menubar.status === 0 || layout.menubar.status === 2 ? 'xiukun' : (layout.menubar.status === 1 ? 'XIU' : '') }}
             </div>
             <div class='layout-sidebar-menubar flex flex-1 overflow-hidden'>
