@@ -3,10 +3,15 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-09 10:05:03
+ * @LastEditTime: 2021-02-10 12:38:57
  */
 import { h } from 'vue';
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import {
+	createRouter,
+	createWebHistory,
+	createWebHashHistory,
+	RouteRecordRaw,
+} from 'vue-router';
 const ParentView = { render: () => h('router-view') };
 const components = {
 	Layout: () => import('@/layout/index.vue'),
@@ -65,7 +70,7 @@ export const allowRouter: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-	history: createWebHistory(process.env.BASE_URL),
+	history: createWebHashHistory(),
 	routes: allowRouter,
 });
 
