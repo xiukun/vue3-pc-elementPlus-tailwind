@@ -27,12 +27,12 @@ jobs:
 
       # install dependency packages
       - name: install
-        run: npm install
+        run: yarn
 
       #  build
       - name: build
         run: |
-          npm run build.
+          yarn build.
           
       # Deploy to gh-pages
       - name: deploy
