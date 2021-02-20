@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-03 10:32:41
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-09 13:15:14
+ * @LastEditTime: 2021-02-20 16:52:28
 -->
 <template>
     <div class="login-register container" :class="{'sign-up-mode':signUpMode}">
@@ -108,8 +108,8 @@ export default defineComponent({
         RegisterForm,
     },
     setup() {
-        const { proxy } = getCurrentInstance() as ComponentInternalInstance;
-
+        const { proxy } = getCurrentInstance() as any;
+        // const { proxy } = getCurrentInstance() as ComponentInternalInstance;  需要把main.ts中的ComponentCustomProperties注释解放才能使用
         const signUpMode = ref<boolean>(false);
         const isShow = ref<boolean>(false);
         const delayShow = () => {
@@ -197,8 +197,8 @@ export default defineComponent({
         });
 
         onMounted(() => {
-            console.log(proxy?.$http);
-            console.log(proxy?.$test);
+            console.log(proxy.$http);
+            console.log(proxy.$test);
         });
         return {
             signUpMode,
@@ -598,6 +598,6 @@ form.sign-up-form {
     color: #333;
 }
 .tiparea p a {
-    color: #409eff;
+    color: var(--main-color);
 } */
 </style>

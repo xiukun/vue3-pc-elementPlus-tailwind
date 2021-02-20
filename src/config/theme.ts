@@ -3,25 +3,25 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:40:04
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-08 09:40:22
+ * @LastEditTime: 2021-02-20 17:01:48
  */
 import { ITheme } from '@/type/config/theme';
-
+const defaultColor: string = '#00caab';
 const theme: Array<ITheme> = [
 	{
 		tagsActiveColor: '#fff',
-		tagsActiveBg: '#409EFF',
+		tagsActiveBg: defaultColor,
 		mainBg: '#f2f2f2',
 		sidebarColor: '#fff',
 		sidebarBg: '#001529',
 		sidebarChildrenBg: '#000c17',
 		sidebarActiveColor: '#fff',
-		sidebarActiveBg: '#409EFF',
-		sidebarActiveBorderRightBG: '#1890ff',
+		sidebarActiveBg: defaultColor,
+		sidebarActiveBorderRightBG: defaultColor,
 	},
 	{
 		tagsActiveColor: '#fff',
-		tagsActiveBg: '#409EFF',
+		tagsActiveBg: defaultColor,
 		navbarColor: '#fff',
 		navbarBg: '#393D49',
 		mainBg: '#f2f2f2',
@@ -29,19 +29,19 @@ const theme: Array<ITheme> = [
 		sidebarBg: '#001529',
 		sidebarChildrenBg: '#000c17',
 		sidebarActiveColor: '#fff',
-		sidebarActiveBg: '#409EFF',
-		sidebarActiveBorderRightBG: '#1890ff',
+		sidebarActiveBg: defaultColor,
+		sidebarActiveBorderRightBG: defaultColor,
 	},
 	{
 		tagsActiveColor: '#fff',
-		tagsActiveBg: '#409EFF',
+		tagsActiveBg: defaultColor,
 		mainBg: '#f2f2f2',
 		sidebarColor: '#333',
 		sidebarBg: '#fff',
 		sidebarChildrenBg: '#fff',
-		sidebarActiveColor: '#409EFF',
+		sidebarActiveColor: defaultColor,
 		sidebarActiveBg: '#e6f7ff',
-		sidebarActiveBorderRightBG: '#409EFF',
+		sidebarActiveBorderRightBG: defaultColor,
 	},
 	{
 		logoColor: 'rgba(255,255,255,.7)',

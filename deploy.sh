@@ -3,7 +3,7 @@
  # @Autor: xiukun@herry
  # @Date: 2021-02-10 13:21:03
  # @LastEditors: xiukun@herry
- # @LastEditTime: 2021-02-10 13:23:14
+ # @LastEditTime: 2021-02-10 13:37:20
 ### 
 # abort on errors
 set -e
@@ -25,4 +25,4 @@ git add -A
 git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:xiukun/vue3-pc-elementPlus-tailwind.git master:gh-pages
+git push -f https://github.com/xiukun/vue3-pc-elementPlus-tailwind.git master:gh-pages

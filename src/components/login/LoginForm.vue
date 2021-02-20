@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-03 16:48:56
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-08 16:49:59
+ * @LastEditTime: 2021-02-20 16:53:27
 -->
 <template>
     <el-form ref="loginForm" :model="loginUser" :rules="rules" label-width="100px" class="loginForm sign-in-form">
@@ -93,6 +93,6 @@ export default defineComponent({
     color: #333;
 }
 .tiparea p a {
-    color: #409eff;
+    color: var(--main-color);
 }
 </style>
