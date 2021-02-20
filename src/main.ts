@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-20 16:51:41
+ * @LastEditTime: 2021-02-20 17:09:54
  */
 import { createApp } from 'vue';
 import '@/permission';
@@ -15,9 +15,7 @@ import router from './router';
 import { store } from './store';
 import '@/mock/index';
 
-import 'nprogress/nprogress.css';
-import '@/assets/styles/tailwindcss.css';
-import '@/assets/styles/custom.css';
+import '@/assets/styles/index.scss';
 
 // 对vue进行类型补充说明
 /* eslint-disable */
