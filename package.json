@@ -13,13 +13,14 @@
 		"axios": "^0.21.1",
 		"core-js": "^3.6.5",
 		"element-plus": "^1.0.2-beta.31",
+		"lodash-es": "^4.17.20",
 		"nprogress": "^0.2.0",
 		"vue": "3.0.5",
 		"vue-router": "4.0.3",
 		"vuex": "4.0.0-rc.2"
 	},
 	"devDependencies": {
-		"@types/lodash": "^4.14.168",
+		"@types/lodash-es": "^4.17.4",
 		"@types/mockjs": "^1.0.3",
 		"@types/nprogress": "^0.2.0",
 		"@vue/cli-plugin-babel": "~4.5.0",

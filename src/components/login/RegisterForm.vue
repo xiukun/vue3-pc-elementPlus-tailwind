@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-03 16:48:56
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-05 18:24:53
+ * @LastEditTime: 2021-02-20 18:44:48
 -->
 <template>
     <el-form ref="registerForm" :model="registerUser" :rules="registerRules" label-width="100px" class="registerForm sign-up-form">
@@ -38,7 +38,7 @@
 import { ref, Ref } from 'vue';
 import { validate } from '@/utils/formExtend';
 // import axios from 'axios' // 仅限在当前组件使用
-import { cloneDeep } from 'lodash';
+import { cloneDeep } from 'lodash-es';
 export default {
     props: {
         registerUser: {
