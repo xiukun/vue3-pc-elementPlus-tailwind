@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-03 11:00:56
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-08 14:33:19
+ * @LastEditTime: 2021-02-20 19:24:13
 -->
 <template functional>
     <div class="not-found">
@@ -12,8 +12,8 @@
 
 <script>
 export default {
-    name: 'not-found',
-};
+    name: 'not-found'
+}
 </script>
 
 <style scoped>

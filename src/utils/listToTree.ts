@@ -12,20 +12,20 @@
  * @param pid 最外层pid
  */
 export function listToTree(
-	data: Array<any>,
-	pid: string | number = 1,
-	isChildNull = false
+    data: Array<any>,
+    pid: string | number = 1,
+    isChildNull = false
 ): Array<any> {
-	const d: Array<unknown> = [];
-	data.forEach((val) => {
-		if (val.parentId == pid) {
-			const list = listToTree(data, val.id, isChildNull);
-			const obj: any = { ...val };
-			if (!isChildNull || list.length !== 0) {
-				obj.children = list;
-			}
-			d.push(obj);
-		}
-	});
-	return d;
+    const d: Array<unknown> = []
+    data.forEach((val) => {
+        if (val.parentId == pid) {
+            const list = listToTree(data, val.id, isChildNull)
+            const obj: any = { ...val }
+            if (!isChildNull || list.length !== 0) {
+                obj.children = list
+            }
+            d.push(obj)
+        }
+    })
+    return d
 }

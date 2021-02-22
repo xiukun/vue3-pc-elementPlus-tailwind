@@ -5,7 +5,7 @@
  * @LastEditors: xiukun@herry
  * @LastEditTime: 2021-02-07 18:11:36
  */
-import { ILayout } from '@/type/store/layout';
+import { ILayout } from '@/type/store/layout'
 
 interface IState {
 	layout: ILayout;

@@ -6,14 +6,14 @@
  * @LastEditTime: 2021-02-05 10:37:28
  */
 module.exports = {
-	presets: ['@vue/cli-plugin-babel/preset'],
-	// plugins: [
-	// 	[
-	// 		'component',
-	// 		{
-	// 			libraryName: 'element-plus',
-	// 			styleLibraryName: 'theme-chalk',
-	// 		},
-	// 	],
-	// ],
-};
+    presets: ['@vue/cli-plugin-babel/preset']
+    // plugins: [
+    // 	[
+    // 		'component',
+    // 		{
+    // 			libraryName: 'element-plus',
+    // 			styleLibraryName: 'theme-chalk',
+    // 		},
+    // 	],
+    // ],
+}

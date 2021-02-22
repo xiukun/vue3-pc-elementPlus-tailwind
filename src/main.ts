@@ -5,17 +5,17 @@
  * @LastEditors: xiukun@herry
  * @LastEditTime: 2021-02-20 17:09:54
  */
-import { createApp } from 'vue';
-import '@/permission';
-import ele from './core/plugins/ele'; // element plus
-import { http } from './core/ajax'; // axios interceptors
-import db from './utils/db'; // localStorage
-import App from './App.vue';
-import router from './router';
-import { store } from './store';
-import '@/mock/index';
+import { createApp } from 'vue'
+import '@/permission'
+import ele from './core/plugins/ele' // element plus
+import { http } from './core/ajax' // axios interceptors
+import db from './utils/db' // localStorage
+import App from './App.vue'
+import router from './router'
+import { store } from './store'
+import '@/mock/index'
 
-import '@/assets/styles/index.scss';
+import '@/assets/styles/index.scss'
 
 // 对vue进行类型补充说明
 /* eslint-disable */

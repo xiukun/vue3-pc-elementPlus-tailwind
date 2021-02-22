@@ -5,10 +5,10 @@
  * @LastEditors: xiukun@herry
  * @LastEditTime: 2021-02-20 17:05:58
  */
-import { App } from 'vue';
-import ElementPlus from 'element-plus';
+import { App } from 'vue'
+import ElementPlus from 'element-plus'
 // import 'element-plus/lib/theme-chalk/index.css';
 export default function(app: App<Element>): void {
-	// 完整引入
-	app.use(ElementPlus, { size: 'small', zIndex: 3000 });
+    // 完整引入
+    app.use(ElementPlus, { size: 'small', zIndex: 3000 })
 }

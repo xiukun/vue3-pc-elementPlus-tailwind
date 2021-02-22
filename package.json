@@ -1,41 +1,50 @@
 {
-	"name": "vue3_pc_elementplus_tailwind",
-	"version": "0.1.0",
-	"private": true,
-	"homepage": "https://xiukun.github.io/vue3-pc-elementPlus-tailwind/",
-	"scripts": {
-		"serve": "vue-cli-service serve",
-		"build": "vue-cli-service build",
-		"stylelint": "npx stylelint **/*.{css,vue} --fix",
-		"deploy": "bash deploy.sh"
-	},
-	"dependencies": {
-		"axios": "^0.21.1",
-		"core-js": "^3.6.5",
-		"element-plus": "^1.0.2-beta.31",
-		"lodash-es": "^4.17.20",
-		"nprogress": "^0.2.0",
-		"vue": "3.0.5",
-		"vue-router": "4.0.3",
-		"vuex": "4.0.0-rc.2"
-	},
-	"devDependencies": {
-		"@types/lodash-es": "^4.17.4",
-		"@types/mockjs": "^1.0.3",
-		"@types/nprogress": "^0.2.0",
-		"@vue/cli-plugin-babel": "~4.5.0",
-		"@vue/cli-plugin-router": "~4.5.0",
-		"@vue/cli-plugin-typescript": "~4.5.0",
-		"@vue/cli-plugin-vuex": "~4.5.0",
-		"@vue/cli-service": "~4.5.0",
-		"@vue/compiler-sfc": "^3.0.0",
-		"autoprefixer": "^9",
-		"babel-plugin-component": "^1.1.1",
-		"mockjs": "^1.1.0",
-		"postcss": "^8.2.5",
-		"sass": "^1.32.8",
-		"sass-loader": "10.x",
-		"tailwindcss": "^2.0.3",
-		"typescript": "~3.9.3"
-	}
+    "name": "vue3_pc_elementplus_tailwind",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "https://xiukun.github.io/vue3-pc-elementPlus-tailwind/",
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "stylelint": "npx stylelint **/*.{css,vue} --fix",
+        "eslint": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
+        "deploy": "bash deploy.sh"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "core-js": "^3.6.5",
+        "element-plus": "^1.0.2-beta.31",
+        "lodash-es": "^4.17.20",
+        "nprogress": "^0.2.0",
+        "vue": "3.0.5",
+        "vue-router": "4.0.3",
+        "vuex": "4.0.0-rc.2"
+    },
+    "devDependencies": {
+        "@types/lodash-es": "^4.17.4",
+        "@types/mockjs": "^1.0.3",
+        "@types/nprogress": "^0.2.0",
+        "@typescript-eslint/eslint-plugin": "^4.9.1",
+        "@typescript-eslint/parser": "^4.9.1",
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-plugin-router": "~4.5.0",
+        "@vue/cli-plugin-typescript": "~4.5.0",
+        "@vue/cli-plugin-vuex": "~4.5.0",
+        "@vue/cli-service": "~4.5.0",
+        "@vue/compiler-sfc": "^3.0.0",
+        "autoprefixer": "^9",
+        "babel-plugin-component": "^1.1.1",
+        "eslint": "^7.15.0",
+        "eslint-plugin-vue": "^7.2.0",
+        "mockjs": "^1.1.0",
+        "postcss": "^8.2.5",
+        "sass": "^1.32.8",
+        "sass-loader": "10.x",
+        "tailwindcss": "^2.0.3",
+        "typescript": "~3.9.3"
+    },
+    "eslintIgnore": [
+        "node_modules",
+        "dist"
+    ]
 }

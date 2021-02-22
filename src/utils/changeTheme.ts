@@ -5,14 +5,14 @@
  * @LastEditors: xiukun@herry
  * @LastEditTime: 2021-02-07 18:28:44
  */
-import theme from '@/config/theme';
-import { ITheme } from '@/type/config/theme';
+import theme from '@/config/theme'
+import { ITheme } from '@/type/config/theme'
 export default function(num: number): HTMLStyleElement {
-	const themeStyle: ITheme = num >= theme.length ? theme[0] : theme[num];
+    const themeStyle: ITheme = num >= theme.length ? theme[0] : theme[num]
 
-	const themeDom = document.createElement('style');
-	themeDom.className = 'layout-theme-setting';
-	themeDom.innerText = `
+    const themeDom = document.createElement('style')
+    themeDom.className = 'layout-theme-setting'
+    themeDom.innerText = `
     .layout-sidebar-logo {
         background-color: ${themeStyle.logoBg || themeStyle.sidebarBg};
         color: ${themeStyle.logoColor || themeStyle.sidebarColor};
@@ -52,14 +52,14 @@ export default function(num: number): HTMLStyleElement {
         border-right: 3px solid ${themeStyle.sidebarActiveBorderRightBG};
     }
     ${(function() {
-		let s = '';
-		if (themeStyle.navbarBg) {
-			s += `.layout-main-navbar {
+        let s = ''
+        if (themeStyle.navbarBg) {
+            s += `.layout-main-navbar {
                 background-color: ${themeStyle.navbarBg};
-            }`;
-		}
-		if (themeStyle.navbarColor) {
-			s += `.layout-main-navbar {
+            }`
+        }
+        if (themeStyle.navbarColor) {
+            s += `.layout-main-navbar {
                 color: ${themeStyle.navbarColor};
             }
             .layout-main-navbar .el-breadcrumb .el-breadcrumb__inner,
@@ -68,20 +68,20 @@ export default function(num: number): HTMLStyleElement {
             .layout-main-navbar .el-breadcrumb .el-breadcrumb__separator:hover,
             .layout-main-navbar .el-dropdown {
                 color: ${themeStyle.navbarColor};
-            }`;
-		}
-		if (themeStyle.tagsBg) {
-			s += `.layout-main-tags {
+            }`
+        }
+        if (themeStyle.tagsBg) {
+            s += `.layout-main-tags {
                 background-color: ${themeStyle.tagsBg};
-            }`;
-		}
-		if (themeStyle.tagsColor) {
-			s += `.layout-main-tags {
+            }`
+        }
+        if (themeStyle.tagsColor) {
+            s += `.layout-main-tags {
                 color: ${themeStyle.tagsColor};
-            }`;
-		}
-		return s;
-	})()}
+            }`
+        }
+        return s
+    })()}
     .layout-main-content {
         background-color: ${themeStyle.mainBg};
     }
@@ -94,10 +94,10 @@ export default function(num: number): HTMLStyleElement {
         color: ${themeStyle.sidebarColor};
     }
     `
-		.replace(/\n/g, '')
-		.replace(/ {4}/g, '');
-	const prevTheme = document.querySelector('style.layout-theme-setting');
-	prevTheme && prevTheme.remove();
-	document.head.appendChild(themeDom);
-	return themeDom;
+        .replace(/\n/g, '')
+        .replace(/ {4}/g, '')
+    const prevTheme = document.querySelector('style.layout-theme-setting')
+    prevTheme && prevTheme.remove()
+    document.head.appendChild(themeDom)
+    return themeDom
 }
