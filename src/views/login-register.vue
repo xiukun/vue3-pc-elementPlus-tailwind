@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-03 10:32:41
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-20 16:52:28
+ * @LastEditTime: 2021-02-22 13:58:25
 -->
 <template>
     <div class="login-register container" :class="{'sign-up-mode':signUpMode}">
@@ -33,7 +33,7 @@
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>XX系统</h3>
+                    <h3>XX系统 <i class="my-ico-international" /></h3>
                     <br>
                     <button @click="signUpMode = !signUpMode" class="btn transparent">
                         注册
@@ -44,7 +44,7 @@
 
             <div class="panel right-panel">
                 <div class="content">
-                    <h3>XX系统</h3>
+                    <h3>XX系统 <i class="my-ico-international" /></h3>
                     <br>
                     <button @click="signUpMode = !signUpMode" class="btn transparent">
                         登录
@@ -67,14 +67,11 @@ import {
     getCurrentInstance,
     ComponentInternalInstance,
     watch,
-    reactive,
+    reactive
 } from 'vue';
 import { ElNotification } from 'element-plus';
 import { validate, resetFields } from '@/utils/formExtend';
-import {
-    registerUser,
-    registerRules,
-} from '@/components/login/registerValidators';
+import { registerUser, registerRules } from '@/components/login/registerValidators';
 import { LoginForm, RegisterForm } from '@/components/login';
 
 interface Rules {
@@ -105,7 +102,7 @@ export default defineComponent({
     name: 'login-register',
     components: {
         LoginForm,
-        RegisterForm,
+        RegisterForm
     },
     setup() {
         const { proxy } = getCurrentInstance() as any;
@@ -119,7 +116,7 @@ export default defineComponent({
         };
         const loginUser = ref<object>({
             email: 'admin@163.com',
-            password: '123456',
+            password: '123456'
         });
         const rules = reactive<Rules>({
             email: [
@@ -127,22 +124,22 @@ export default defineComponent({
                     required: true,
                     type: 'email',
                     message: '请输入正确的邮箱地址',
-                    trigger: 'blur',
-                },
+                    trigger: 'blur'
+                }
             ],
             password: [
                 {
                     required: true,
                     message: '密码不能为空',
-                    trigger: 'blur,change',
+                    trigger: 'blur,change'
                 },
                 {
                     min: 6,
                     max: 30,
                     message: '密码长度6~30字符~~',
-                    trigger: 'blur',
-                },
-            ],
+                    trigger: 'blur'
+                }
+            ]
         });
 
         // 触发登录方法
@@ -153,14 +150,14 @@ export default defineComponent({
                 ElNotification({
                     title: '欢迎',
                     message: '登录成功',
-                    type: 'success',
+                    type: 'success'
                 });
                 // await ajax api request
             } else {
                 ElNotification({
                     title: '警告',
                     message: '账号或密码错误',
-                    type: 'warning',
+                    type: 'warning'
                 });
                 return;
             }
@@ -209,9 +206,9 @@ export default defineComponent({
             handleLogin,
             resetFields,
             registerUser,
-            registerRules,
+            registerRules
         };
-    },
+    }
     // mounted() {
     //     console.log(this.$test.test);
     // },
