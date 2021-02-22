@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-03 10:32:41
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-22 13:58:25
+ * @LastEditTime: 2021-02-22 14:24:38
 -->
 <template>
     <div class="login-register container" :class="{'sign-up-mode':signUpMode}">
@@ -242,39 +242,9 @@ export default defineComponent({
 }
 
 /* 左右切换动画 */
-.social-text {
-    padding: 0.7rem 0;
-    font-size: 1rem;
-}
-
-.social-media {
-    display: flex;
-    justify-content: center;
-}
-
-.social-icon {
-    height: 46px;
-    width: 46px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0.45rem;
-    color: #333;
-    border-radius: 50%;
-    border: 1px solid #333;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: 0.3s;
-}
-
-.social-icon:hover {
-    color: #4481eb;
-    border-color: #4481eb;
-}
-
 .btn {
     width: 150px;
-    background-color: #5995fd;
+    background-color: #00caab;
     border: none;
     outline: none;
     height: 49px;
@@ -288,7 +258,7 @@ export default defineComponent({
 }
 
 .btn:hover {
-    background-color: #4d84e2;
+    background-color: #67e7d4;
 }
 .panels-container {
     position: absolute;
@@ -308,7 +278,7 @@ export default defineComponent({
     top: -10%;
     right: 48%;
     transform: translateY(-50%);
-    background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+    background-image: linear-gradient(-45deg, #00caab 0%, #67e7d4 100%);
     transition: 1.8s ease-in-out;
     border-radius: 50%;
     z-index: 6;
