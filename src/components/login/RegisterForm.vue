@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-03 16:48:56
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-20 18:44:48
+ * @LastEditTime: 2021-02-22 14:50:32
 -->
 <template>
     <el-form ref="registerForm" :model="registerUser" :rules="registerRules" label-width="100px" class="registerForm sign-up-form">
@@ -40,15 +40,16 @@ import { validate } from '@/utils/formExtend';
 // import axios from 'axios' // 仅限在当前组件使用
 import { cloneDeep } from 'lodash-es';
 export default {
+    name: 'RegisterForm',
     props: {
         registerUser: {
             type: Object,
-            required: true,
+            required: true
         },
         registerRules: {
             type: Object,
-            required: true,
-        },
+            required: true
+        }
     },
     setup() {
         console.log(cloneDeep({ a: '1' }));
@@ -63,6 +64,6 @@ export default {
         };
 
         return { handleRegister, registerForm };
-    },
+    }
 };
 </script>

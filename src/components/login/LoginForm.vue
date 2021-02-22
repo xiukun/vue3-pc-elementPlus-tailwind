@@ -30,15 +30,16 @@ import { defineComponent, ref, unref, getCurrentInstance, Ref } from 'vue';
 import { ElNotification } from 'element-plus';
 import { store } from '@/store/index';
 export default defineComponent({
+    name: 'LoginForm',
     props: {
         loginUser: {
             type: Object,
-            required: true,
+            required: true
         },
         rules: {
             type: Object,
-            required: true,
-        },
+            required: true
+        }
     },
     setup(props) {
         // const { ctx } = getCurrentInstance() as any ;
@@ -52,13 +53,13 @@ export default defineComponent({
                     ElNotification({
                         title: '欢迎',
                         message: '登录成功',
-                        type: 'success',
+                        type: 'success'
                     });
                 } else {
                     ElNotification({
                         title: '警告',
                         message: '账号或密码错误',
-                        type: 'warning',
+                        type: 'warning'
                     });
                     return false;
                 }
@@ -71,7 +72,7 @@ export default defineComponent({
         };
 
         return { handleLogin, loginForm };
-    },
+    }
 });
 </script>
 <style scoped>
