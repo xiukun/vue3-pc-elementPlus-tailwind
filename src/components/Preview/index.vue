@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-22 14:29:48
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-22 16:00:15
+ * @LastEditTime: 2021-02-22 16:48:08
 -->
 <template>
     <transition>
@@ -48,7 +48,7 @@ import { on, off } from '@/utils/dom-utils';
 import throttle from 'lodash-es/throttle';
 const mousewheelEventName = isFirefox() ? 'DOMMouseScroll' : 'mousewheel';
 export default defineComponent({
-    name: 'Preview',
+    name: 'ComPreview',
     props: previewProps,
     setup(props) {
         const infinite = ref<boolean>(true);

@@ -3,24 +3,26 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-20 19:30:49
+ * @LastEditTime: 2021-02-22 16:53:04
  */
-import { h } from 'vue'
+import { h } from 'vue';
 import {
     createRouter,
     // createWebHistory,
     createWebHashHistory,
     RouteRecordRaw
-} from 'vue-router'
-const ParentView = { render: () => h('router-view') }
+} from 'vue-router';
+const ParentView = { render: () => h('router-view') };
 const components = {
     Layout: () => import('@/layout/index.vue'),
     Redirect: () => import('@/layout/redirect.vue'),
     Workplace: () => import('@/views/dashboard/workplace.vue'),
     404: () => import('@/views/404.vue'),
     Home: () => import('@/views/index.vue'),
-    Login: () => import('@/views/login-register.vue')
-}
+    Login: () => import('@/views/login-register.vue'),
+
+    Preview: () => import('@/views/package/preview/index.vue')
+};
 
 export const allowRouter: Array<RouteRecordRaw> = [
     {
@@ -34,7 +36,22 @@ export const allowRouter: Array<RouteRecordRaw> = [
                 name: 'Workplace',
                 path: '/dashboard/workplace',
                 component: components['Workplace'],
-                meta: { title: '工作台', icon: 'el-icon-s-tools' }
+                meta: { title: '工作台' }
+            }
+        ]
+    },
+    {
+        name: 'Package',
+        path: '/',
+        component: components['Layout'],
+        redirect: '/package/preview',
+        meta: { title: '封装组件', icon: 'el-icon-menu' },
+        children: [
+            {
+                name: 'Preview',
+                path: '/package/preview',
+                component: components['Preview'],
+                meta: { title: '预览图片' }
             }
         ]
     },
@@ -67,11 +84,11 @@ export const allowRouter: Array<RouteRecordRaw> = [
         redirect: '/404',
         component: ParentView
     }
-]
+];
 
 const router = createRouter({
     history: createWebHashHistory(),
     routes: allowRouter
-})
+});
 
-export default router
+export default router;

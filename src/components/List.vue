@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @Autor: xiukun@herry
+ * @Date: 2021-02-20 18:41:46
+ * @LastEditors: xiukun@herry
+ * @LastEditTime: 2021-02-22 16:48:21
+-->
 <template>
     <div v-for='(val,index) in data' :key='index' class='tab-list pb-3 border-b hover:bg-gray-100'>
         <div class='flex justify-between items-center'>
@@ -35,16 +42,16 @@ interface IList {
 }
 
 export default defineComponent({
-    name: 'List',
+    name: 'ComList',
     props: {
         data: {
             type: Array as PropType<Array<IList>>,
-            default: () => [],
-        },
+            default: () => []
+        }
     },
     setup() {
         return {};
-    },
+    }
 });
 </script>
     

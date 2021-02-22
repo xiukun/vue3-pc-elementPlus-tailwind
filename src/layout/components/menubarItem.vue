@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-09 10:36:52
+ * @LastEditTime: 2021-02-22 16:56:57
 -->
 <template>
     <el-submenu v-if='haChild' :key='menuList.path' :index='menuList.path'>
@@ -33,21 +33,17 @@ export default defineComponent({
             type: Object,
             default: () => {
                 return {};
-            },
-        },
+            }
+        }
     },
     setup(context) {
         const cMenuList = computed(() =>
-            context.menuList.children.filter(
-                (v: any) => v.meta && !v.meta.hidden
-            )
+            context.menuList.children.filter((v: any) => v.meta && !v.meta.hidden)
         );
         return {
-            haChild:
-                context.menuList.children &&
-                context.menuList.children.length > 0,
-            cMenuList,
+            haChild: context.menuList.children && context.menuList.children.length > 0,
+            cMenuList
         };
-    },
+    }
 });
 </script>
