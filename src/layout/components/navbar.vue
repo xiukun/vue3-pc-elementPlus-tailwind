@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-09 13:03:32
+ * @LastEditTime: 2021-02-23 15:20:44
 -->
 <template>
     <div class='flex items-center px-4'>
@@ -45,7 +45,11 @@
             </template>
         </el-dropdown>
 
+        <!-- 通知 -->
         <Notice />
+
+        <!-- 头部菜单模糊搜索 -->
+        <search id="header-search" />
     </div>
 </template>
 
@@ -54,7 +58,7 @@ import { computed, defineComponent, reactive, watch } from 'vue';
 import { useStore } from '@/store/index';
 import { useRoute, RouteLocationNormalizedLoaded } from 'vue-router';
 import Notice from '@/layout/components/notice.vue';
-
+import Search from '@/layout/components/headerSearch.vue';
 interface IBreadcrumbList {
     path: string;
     title: string | symbol;
@@ -63,19 +67,18 @@ interface IBreadcrumbList {
 const breadcrumb = (route: RouteLocationNormalizedLoaded) => {
     const fn = () => {
         const breadcrumbList: Array<IBreadcrumbList> = [];
-        if (route.matched[0] && route.matched[0].name === 'Dashboard')
-            return breadcrumbList;
+        if (route.matched[0] && route.matched[0].name === 'Dashboard') return breadcrumbList;
         route.matched.forEach((v) => {
             const obj: IBreadcrumbList = {
                 title: v.meta.title,
-                path: v.path,
+                path: v.path
             };
             breadcrumbList.push(obj);
         });
         return breadcrumbList;
     };
     let data = reactive({
-        breadcrumbList: fn(),
+        breadcrumbList: fn()
     });
     watch(
         () => route.path,
@@ -88,6 +91,7 @@ export default defineComponent({
     name: 'LayoutNavbar',
     components: {
         Notice,
+        Search
     },
     setup() {
         const store = useStore();
@@ -101,7 +105,7 @@ export default defineComponent({
             },
             set(value) {
                 store.dispatch('layout/changeSetting', value);
-            },
+            }
         });
         return {
             menubar: store.state.layout.menubar,
@@ -109,8 +113,8 @@ export default defineComponent({
             changeCollapsed,
             logout,
             ...breadcrumb(route),
-            setting,
+            setting
         };
-    },
+    }
 });
 </script>

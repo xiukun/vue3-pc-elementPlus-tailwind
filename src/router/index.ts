@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-22 16:53:04
+ * @LastEditTime: 2021-02-23 15:22:41
  */
 import { h } from 'vue';
 import {
@@ -42,7 +42,7 @@ export const allowRouter: Array<RouteRecordRaw> = [
     },
     {
         name: 'Package',
-        path: '/',
+        path: '/Package',
         component: components['Layout'],
         redirect: '/package/preview',
         meta: { title: '封装组件', icon: 'el-icon-menu' },

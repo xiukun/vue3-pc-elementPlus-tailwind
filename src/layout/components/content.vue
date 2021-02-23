@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-08 09:43:47
+ * @LastEditTime: 2021-02-22 18:22:38
 -->
 <template>
     <el-scrollbar>
@@ -31,7 +31,7 @@ export default defineComponent({
         const key = computed(() => route.path);
 
         let data = reactive({
-            cachedViews: [...store.state.layout.tags.cachedViews],
+            cachedViews: [...store.state.layout.tags.cachedViews]
         });
         // keep-alive的include重新赋值，解决bug https://github.com/vuejs/vue-next/issues/2550
         watch(
@@ -41,8 +41,8 @@ export default defineComponent({
         return {
             key,
             data,
-            layout: store.state.layout,
+            layout: store.state.layout
         };
-    },
+    }
 });
 </script>
