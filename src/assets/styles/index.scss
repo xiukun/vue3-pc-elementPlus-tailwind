@@ -3,3 +3,9 @@
 @import '~@/assets/styles/element-theme.scss'; // UI自定义色调
 @import '~@/assets/styles/tailwindcss.css';
 @import '../iconfont/iconfont.css';
+
+// element plus custom style
+//增加透明度
+.el-popper.is-dark {
+    opacity: 0.8;
+}

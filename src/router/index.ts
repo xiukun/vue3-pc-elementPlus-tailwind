@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-23 15:22:41
+ * @LastEditTime: 2021-02-24 12:47:35
  */
 import { h } from 'vue';
 import {
@@ -21,6 +21,7 @@ const components = {
     Home: () => import('@/views/index.vue'),
     Login: () => import('@/views/login-register.vue'),
 
+    Message: () => import('@/views/package/message/index.vue'),
     Preview: () => import('@/views/package/preview/index.vue')
 };
 
@@ -47,6 +48,12 @@ export const allowRouter: Array<RouteRecordRaw> = [
         redirect: '/package/preview',
         meta: { title: '封装组件', icon: 'el-icon-menu' },
         children: [
+            {
+                name: 'Message',
+                path: '/package/message',
+                component: components['Message'],
+                meta: { title: '消息' }
+            },
             {
                 name: 'Preview',
                 path: '/package/preview',

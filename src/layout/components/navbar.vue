@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-23 15:20:44
+ * @LastEditTime: 2021-02-24 14:04:57
 -->
 <template>
     <div class='flex items-center px-4'>
@@ -47,9 +47,11 @@
 
         <!-- 通知 -->
         <Notice />
-
         <!-- 头部菜单模糊搜索 -->
-        <search id="header-search" />
+        <el-tooltip content="菜单搜索" placement="bottom">
+            <Search id="header-search" />
+        </el-tooltip>
+
     </div>
 </template>
 
