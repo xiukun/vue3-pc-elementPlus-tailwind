@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-24 12:47:35
+ * @LastEditTime: 2021-02-24 17:20:47
  */
 import { h } from 'vue';
 import {
@@ -22,7 +22,8 @@ const components = {
     Login: () => import('@/views/login-register.vue'),
 
     Message: () => import('@/views/package/message/index.vue'),
-    Preview: () => import('@/views/package/preview/index.vue')
+    Preview: () => import('@/views/package/preview/index.vue'),
+    FormSearchPath: () => import('@/views/package/formSearchDemo/index.vue')
 };
 
 export const allowRouter: Array<RouteRecordRaw> = [
@@ -59,6 +60,12 @@ export const allowRouter: Array<RouteRecordRaw> = [
                 path: '/package/preview',
                 component: components['Preview'],
                 meta: { title: '预览图片' }
+            },
+            {
+                name: 'FormSearchPath',
+                path: '/package/formSearchDemo',
+                component: components['FormSearchPath'],
+                meta: { title: 'Form查询' }
             }
         ]
     },
