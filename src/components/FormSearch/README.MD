@@ -1,28 +1,29 @@
-<!--
- * @Description: 
- * @Autor: xiukun@herry
- * @Date: 2021-02-24 15:53:05
- * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-25 15:51:54
--->
-<template>
-    <br>
-    <div>
-        <form-search ref="formSearchRef" :rules="rules" :props="searchConfig.props" :form="filterForm" :label-width="searchConfig.labelWidth" :inline="true">
-            <template #search>
-                <el-form-item style="float:right;right:20px;">
-                    <el-button type="primary" icon="el-icon-search" @click.stop.prevent="searchBtn">查询</el-button>
-                    <!-- <el-button type="warning" icon="el-icon-refresh">重置</el-button> -->
-                    <!-- <el-button type="info" icon="el-icon-plus">添加</el-button>
-                    <el-button>文本说明</el-button> -->
-                    <el-button icon="el-icon-sort" @click="gg(formSearchRef)" circle></el-button>
-                </el-form-item>
-            </template>
-        </form-search>
-    </div>
-</template>
+搜索条件组件
+===
 
-<script>
+使用说明
+> 本组件扩展性低，适合后端项目使用， 参数代码量少。
+> 扩展性高的form查询搜索组件，请使用FormSearchBase组件
+> 
+----
+
+```html 
+<div>
+    <form-search ref="formSearchRef" :rules="rules" :props="searchConfig.props" :form="filterForm" :label-width="searchConfig.labelWidth" :inline="true">
+        <template #search>
+            <el-form-item style="float:right;right:20px;">
+                <el-button type="primary" icon="el-icon-search" @click.stop.prevent="searchBtn">查询</el-button>
+                <!-- <el-button type="warning" icon="el-icon-refresh">重置</el-button> -->
+                <!-- <el-button type="info" icon="el-icon-plus">添加</el-button>
+                <el-button>文本说明</el-button> -->
+                <el-button icon="el-icon-sort" @click="toggle(formSearchRef)" circle></el-button>
+            </el-form-item>
+        </template>
+    </form-search>
+</div>
+```
+
+```ecmascript 6
 import { defineComponent, ref, unref, reactive, onMounted } from 'vue';
 import FormSearch from '@/components/FormSearch/index';
 
@@ -179,7 +180,6 @@ export default defineComponent({
                         console.log(searchConfig.props);
                         return;
                     }
-                    console.log(searchConfig.props[i].prop);
                 }
             }, 2000);
         });
@@ -187,10 +187,64 @@ export default defineComponent({
         let searchBtn = () => {
             console.log(filterForm.value);
         };
-        let gg = (formSearchRef) => {
+        let toggle = (formSearchRef) => {
             unref(formSearchRef).toggleBtn();
         };
         return { value1, filterForm, rules, searchConfig, formSearchRef, searchBtn, gg };
     }
 });
-</script>
+```
+
+
+`{ form }` 对象
+| 参数     | 说明                                      | 类型    | 默认值 |
+| -------- | ----------------------------------------- | ------- | ------ |
+| props    | 表单组件集合                               | array | — |
+| form     | 表单数据对象                               | object | — |
+| rules    | 表单验证规则                               | object | — |
+| inline   | 是否行内表单模式                            | boolean | true |
+| label-width | 表单域标签的宽度                         | string | 100px |
+| label-position | 表单域标签的位置 right/left/top       | string | right |
+| status-icon    | 是否在输入框中显示校验结果反馈图标      | object | true |
+
+`{ form slot }` 插槽
+| 参数     | 说明 |
+| ------- | ---  |
+| header | form头部插槽  |
+
+`{ props }` 数组集合
+| input参数 | 说明                              | 类型    | 默认值 |
+| ------- | --------------------------------- | ------- | ------ |
+| tag |  元素标签名input                      | string | — |
+| prop |  绑定值 对应form对象的值              | string / number | — |
+| 其他 |  小驼峰命名xxYyyy,对应el-input属性及方法，只是常用的属性封装 | — | — |
+
+| select参数 | 说明                              | 类型    | 默认值 |
+| ------- | --------------------------------- | ------- | ------ |
+| tag |  元素标签名select                     | string | — |
+| prop |  绑定值 对应form对象的值              | string / number | — |
+| 其他 |  小驼峰命名xxYyyy,对应el-input属性及方法，只是常用的属性封装 | — | — |
+
+| cascader参数 | 说明                              | 类型    | 默认值 |
+| ------- | --------------------------------- | ------- | ------ |
+| tag |  元素标签名cascader                   | string | — |
+| prop |  绑定值 对应form对象的值              | string / number | — |
+| 其他 |  小驼峰命名xxYyyy,对应el-input属性及方法，只是常用的属性封装 | — | — |
+
+| checkbox参数 | 说明                              | 类型    | 默认值 |
+| ------- | --------------------------------- | ------- | ------ |
+| tag |  元素标签名checkbox                   | string | — |
+| prop |  绑定值 对应form对象的值              | string / number | — |
+| 其他 |  小驼峰命名xxYyyy,对应el-input属性及方法，只是常用的属性封装 | — | — |
+
+| radio参数 | 说明                              | 类型    | 默认值 |
+| ------- | --------------------------------- | ------- | ------ |
+| tag |  元素标签名radio                   | string | — |
+| prop |  绑定值 对应form对象的值              | string / number | — |
+| 其他 |  小驼峰命名xxYyyy,对应el-input属性及方法，只是常用的属性封装 | — | — |
+
+| switch参数 | 说明                              | 类型    | 默认值 |
+| ------- | --------------------------------- | ------- | ------ |
+| tag |  元素标签名switch                   | string | — |
+| prop |  绑定值 对应form对象的值              | string / number | — |
+| 其他 |  小驼峰命名xxYyyy,对应el-input属性及方法，只是常用的属性封装 | — | — |

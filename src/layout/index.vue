@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-09 16:12:21
+ * @LastEditTime: 2021-02-25 18:08:43
 -->
 <template>
     <div class='layout flex h-screen'>
@@ -40,7 +40,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, onMounted } from 'vue';
+import { defineComponent, onMounted, watch, watchEffect } from 'vue';
 import LayoutContent from '@/layout/components/content.vue';
 import LayoutMenubar from '@/layout/components/menubar.vue';
 import LayoutNavbar from '@/layout/components/navbar.vue';
@@ -48,6 +48,7 @@ import LayoutTags from '@/layout/components/tags.vue';
 import LayoutTheme from '@/layout/components/theme.vue';
 import { useStore } from '@/store/index';
 import throttle from '@/utils/throttle';
+import { useRoute } from 'vue-router';
 export default defineComponent({
     name: 'Layout',
     components: {
@@ -55,15 +56,30 @@ export default defineComponent({
         LayoutMenubar,
         LayoutNavbar,
         LayoutTags,
-        LayoutTheme,
+        LayoutTheme
     },
     setup() {
+        const route = useRoute();
         const store = useStore();
-        const changeDeviceWidth = () =>
-            store.commit('layout/changeDeviceWidth');
+        const changeDeviceWidth = () => store.commit('layout/changeDeviceWidth');
         const changeCollapsed = () => store.commit('layout/changeCollapsed');
 
         store.commit('layout/changeTheme');
+        let isOutLine = () => {
+            let outlink = route.meta.link || null;
+            console.log(outlink);
+            // let isTrue = isHttp(outlink);
+            // if (isTrue) {
+            //     this.dynamicValue = 'hidden';
+            // } else {
+            //     this.dynamicValue = 'scroll';
+            // }
+        };
+
+        watch(
+            () => route,
+            () => isOutLine()
+        );
 
         onMounted(() => {
             changeDeviceWidth();
@@ -76,8 +92,8 @@ export default defineComponent({
         });
         return {
             layout: store.state.layout,
-            changeCollapsed,
+            changeCollapsed
         };
-    },
+    }
 });
 </script>

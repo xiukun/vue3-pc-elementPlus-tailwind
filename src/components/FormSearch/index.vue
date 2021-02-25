@@ -1,9 +1,9 @@
 <!--
- * @Description: 查询搜索组件
+ * @Description: form查询搜索组件
  * @Autor: xiukun@herry
  * @Date: 2021-02-24 14:18:18
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-24 18:48:46
+ * @LastEditTime: 2021-02-25 15:45:49
 -->
 <template>
     <div class="content">

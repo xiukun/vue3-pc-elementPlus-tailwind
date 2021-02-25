@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-24 17:20:47
+ * @LastEditTime: 2021-02-25 17:57:59
  */
 import { h } from 'vue';
 import {
@@ -23,7 +23,9 @@ const components = {
 
     Message: () => import('@/views/package/message/index.vue'),
     Preview: () => import('@/views/package/preview/index.vue'),
-    FormSearchPath: () => import('@/views/package/formSearchDemo/index.vue')
+    FormSearchPath: () => import('@/views/package/formSearchDemo/index.vue'),
+
+    Iframe: () => import('@/layout/iframe/layout.vue')
 };
 
 export const allowRouter: Array<RouteRecordRaw> = [
@@ -66,6 +68,44 @@ export const allowRouter: Array<RouteRecordRaw> = [
                 path: '/package/formSearchDemo',
                 component: components['FormSearchPath'],
                 meta: { title: 'Form查询' }
+            }
+        ]
+    },
+    {
+        name: 'Iframe',
+        path: '/iframe',
+        component: components['Layout'],
+        meta: { title: 'iframe案例', icon: 'international' },
+        children: [
+            {
+                name: 'FrontStandard',
+                path: '/iframe/front-standard',
+                component: import('@/layout/iframe/layout.vue'),
+                meta: { title: '前端规范', link: 'https://tgideas.qq.com/doc/index.html' }
+            },
+            {
+                name: 'Es6',
+                path: '/iframe/es6',
+                component: import('@/layout/iframe/layout.vue'),
+                meta: { title: 'es6编程风格', link: 'https://es6.ruanyifeng.com/#docs/module' }
+            },
+            {
+                name: 'Prettier',
+                path: '/iframe/prettier',
+                component: import('@/layout/iframe/layout.vue'),
+                meta: { title: 'Prettier代码美化工具', link: 'https://prettier.io/' }
+            },
+            {
+                name: 'Tailwindcss',
+                path: '/iframe/tailwindcss',
+                component: import('@/layout/iframe/layout.vue'),
+                meta: { title: 'tailwindcss框架', link: 'https://www.tailwindcss.cn/' }
+            },
+            {
+                name: 'Juejin',
+                path: '/iframe/juejin',
+                component: import('@/layout/iframe/layout.vue'),
+                meta: { title: '掘金', link: 'https://juejin.cn/' }
             }
         ]
     },

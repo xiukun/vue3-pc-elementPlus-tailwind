@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:10:38
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-22 16:21:49
+ * @LastEditTime: 2021-02-25 18:10:22
 -->
 <template>
     <div class='content'>
@@ -12,6 +12,14 @@
                 我的github仓库地址
             </el-link>
         </el-tag>
+        <div>
+            <div class="flex justify-center">
+                <div v-for="(item, $index) in imgList" :key="item" class="img-item" @click="showHasImg($index)">
+                    <img :src="item" alt="" class="image">
+                </div>
+            </div>
+            <el-button type="primary" @click="showImg">点击预览</el-button>
+        </div>
         <div>
             <div class="flex justify-center">
                 <div v-for="(item, $index) in imgList" :key="item" class="img-item" @click="showHasImg($index)">
