@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-25 17:57:59
+ * @LastEditTime: 2021-02-26 11:13:53
  */
 import { h } from 'vue';
 import {
@@ -80,31 +80,31 @@ export const allowRouter: Array<RouteRecordRaw> = [
             {
                 name: 'FrontStandard',
                 path: '/iframe/front-standard',
-                component: import('@/layout/iframe/layout.vue'),
+                component: () => import('@/layout/iframe/layout.vue'),
                 meta: { title: '前端规范', link: 'https://tgideas.qq.com/doc/index.html' }
             },
             {
                 name: 'Es6',
                 path: '/iframe/es6',
-                component: import('@/layout/iframe/layout.vue'),
+                component: () => import('@/layout/iframe/layout.vue'),
                 meta: { title: 'es6编程风格', link: 'https://es6.ruanyifeng.com/#docs/module' }
             },
             {
                 name: 'Prettier',
                 path: '/iframe/prettier',
-                component: import('@/layout/iframe/layout.vue'),
+                component: () => import('@/layout/iframe/layout.vue'),
                 meta: { title: 'Prettier代码美化工具', link: 'https://prettier.io/' }
             },
             {
                 name: 'Tailwindcss',
                 path: '/iframe/tailwindcss',
-                component: import('@/layout/iframe/layout.vue'),
+                component: () => import('@/layout/iframe/layout.vue'),
                 meta: { title: 'tailwindcss框架', link: 'https://www.tailwindcss.cn/' }
             },
             {
                 name: 'Juejin',
                 path: '/iframe/juejin',
-                component: import('@/layout/iframe/layout.vue'),
+                component: () => import('@/layout/iframe/layout.vue'),
                 meta: { title: '掘金', link: 'https://juejin.cn/' }
             }
         ]

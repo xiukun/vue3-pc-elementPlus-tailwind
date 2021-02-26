@@ -3,28 +3,32 @@
 @tailwind utilities;
 html,
 body {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 button:focus {
-	outline: none;
+    outline: none;
 }
 
 @responsive {
-	.transition-width {
-		transition-property: width;
-	}
+    .transition-width {
+        transition-property: width;
+    }
 
-	.flex-center {
-		justify-content: center;
-		align-items: center;
-	}
+    .flex-center {
+        justify-content: center;
+        align-items: center;
+    }
 
-	.min-height-10 {
-		min-height: 2.5rem;
-	}
+    .min-width-32 {
+        min-width: 8rem;
+    }
 
-	.min-width-32 {
-		min-width: 8rem;
-	}
+    .layout-header-h {
+        height: 48px;
+    }
+    .layout-tags-h {
+        height: 40px;
+        line-height: 40px;
+    }
 }

@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-25 18:08:43
+ * @LastEditTime: 2021-02-26 14:40:00
 -->
 <template>
     <div class='layout flex h-screen'>
@@ -14,7 +14,7 @@
                 "w-16": layout.menubar.status === 1, 
                 "absolute z-30": layout.menubar.status === 2, 
             }'>
-            <div class='layout-sidebar-logo flex h-12 relative flex-center shadow-lg'>
+            <div class='layout-sidebar-logo layout-header-h flex relative flex-center shadow-lg'>
                 <img src='~@/assets/logo.png' class='object-contain w-8 h-8'>
                 {{ layout.menubar.status === 0 || layout.menubar.status === 2 ? 'xiukun' : (layout.menubar.status === 1 ? 'XIU' : '') }}
             </div>
@@ -22,11 +22,11 @@
                 <layout-menubar />
             </div>
         </div>
-        <div class='layout-main flex flex-1 flex-col overflow-x-hidden overflow-y-auto'>
-            <div class='layout-main-navbar flex justify-between items-center h-12 shadow-sm border-b border-gray-100 overflow-hidden'>
+        <div class='layout-main flex flex-1 flex-col overflow-x-hidden overflow-y-auto' :class="{'tags-show-cls':layout.setting.showTags}">
+            <div class='layout-main-navbar flex justify-between items-center layout-header-h shadow-sm border-b border-gray-100 overflow-hidden'>
                 <layout-navbar />
             </div>
-            <div v-if='layout.setting.showTags' class='layout-main-tags h-10 leading-10 overflow-hidden shadow text-sm text-gray-600 px-3 position'>
+            <div v-if='layout.setting.showTags' class='layout-main-tags layout-tags-h overflow-hidden shadow text-sm text-gray-600 px-3 position'>
                 <layout-tags />
             </div>
             <div class='layout-main-content flex-1 overflow-hidden'>
@@ -40,7 +40,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, onMounted, watch, watchEffect } from 'vue';
+import { defineComponent, onMounted, watch } from 'vue';
 import LayoutContent from '@/layout/components/content.vue';
 import LayoutMenubar from '@/layout/components/menubar.vue';
 import LayoutNavbar from '@/layout/components/navbar.vue';
@@ -48,7 +48,7 @@ import LayoutTags from '@/layout/components/tags.vue';
 import LayoutTheme from '@/layout/components/theme.vue';
 import { useStore } from '@/store/index';
 import throttle from '@/utils/throttle';
-import { useRoute } from 'vue-router';
+
 export default defineComponent({
     name: 'Layout',
     components: {
@@ -59,27 +59,11 @@ export default defineComponent({
         LayoutTheme
     },
     setup() {
-        const route = useRoute();
         const store = useStore();
         const changeDeviceWidth = () => store.commit('layout/changeDeviceWidth');
         const changeCollapsed = () => store.commit('layout/changeCollapsed');
 
         store.commit('layout/changeTheme');
-        let isOutLine = () => {
-            let outlink = route.meta.link || null;
-            console.log(outlink);
-            // let isTrue = isHttp(outlink);
-            // if (isTrue) {
-            //     this.dynamicValue = 'hidden';
-            // } else {
-            //     this.dynamicValue = 'scroll';
-            // }
-        };
-
-        watch(
-            () => route,
-            () => isOutLine()
-        );
 
         onMounted(() => {
             changeDeviceWidth();

@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-25 16:04:32
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-25 19:01:56
+ * @LastEditTime: 2021-02-26 14:40:16
 -->
 
 <template>
@@ -48,9 +48,13 @@ export default defineComponent({
     }
 });
 </script>
-<style lang="scss">
+<style>
 .iframe-layout {
     width: 100%;
-    height: 100vh;
+    min-height: calc(100vh - 48px);
+}
+.tags-show-cls .iframe-layout {
+    width: 100%;
+    min-height: calc(100vh - 48px - 40px);
 }
 </style>
