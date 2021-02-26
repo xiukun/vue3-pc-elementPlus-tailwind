@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-26 11:13:53
+ * @LastEditTime: 2021-02-26 15:02:29
  */
 import { h } from 'vue';
 import {
@@ -34,7 +34,7 @@ export const allowRouter: Array<RouteRecordRaw> = [
         path: '/',
         component: components['Layout'],
         redirect: '/dashboard/workplace',
-        meta: { title: '仪表盘', icon: 'el-icon-eleme' },
+        meta: { title: '仪表盘', icon: 'my-ico-example' },
         children: [
             {
                 name: 'Workplace',
@@ -49,7 +49,7 @@ export const allowRouter: Array<RouteRecordRaw> = [
         path: '/Package',
         component: components['Layout'],
         redirect: '/package/preview',
-        meta: { title: '封装组件', icon: 'el-icon-menu' },
+        meta: { title: '封装组件', icon: 'my-ico-component' },
         children: [
             {
                 name: 'Message',
@@ -75,12 +75,12 @@ export const allowRouter: Array<RouteRecordRaw> = [
         name: 'Iframe',
         path: '/iframe',
         component: components['Layout'],
-        meta: { title: 'iframe案例', icon: 'international' },
+        meta: { title: 'iframe案例', icon: 'my-ico-international' },
         children: [
             {
                 name: 'FrontStandard',
                 path: '/iframe/front-standard',
-                component: () => import('@/layout/iframe/layout.vue'),
+                component: components['Iframe'],
                 meta: { title: '前端规范', link: 'https://tgideas.qq.com/doc/index.html' }
             },
             {
