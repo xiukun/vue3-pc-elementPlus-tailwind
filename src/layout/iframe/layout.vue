@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-25 16:04:32
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-26 14:40:16
+ * @LastEditTime: 2021-02-26 17:56:30
 -->
 
 <template>
@@ -13,15 +13,7 @@
 </template>
 
 <script lang="ts">
-import {
-    defineComponent,
-    ref,
-    unref,
-    reactive,
-    onMounted,
-    nextTick,
-    getCurrentInstance
-} from 'vue';
+import { defineComponent, ref, unref, onMounted, nextTick } from 'vue';
 import { useRoute } from 'vue-router';
 import { isHttp } from '@/utils/is';
 
@@ -31,7 +23,6 @@ export default defineComponent({
         const iframeContainerElRef = ref(null);
         const iframeElRef = ref(null);
         const route = useRoute();
-
         let iframeSrc = ref(null);
 
         let outlink = route.meta.link || null;

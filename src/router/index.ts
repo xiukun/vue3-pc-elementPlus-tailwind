@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-26 15:02:29
+ * @LastEditTime: 2021-02-26 17:58:19
  */
 import { h } from 'vue';
 import {
@@ -16,6 +16,7 @@ const ParentView = { render: () => h('router-view') };
 const components = {
     Layout: () => import('@/layout/index.vue'),
     Redirect: () => import('@/layout/redirect.vue'),
+    Iframe: () => import('@/layout/iframe/layout.vue'),
     Workplace: () => import('@/views/dashboard/workplace.vue'),
     404: () => import('@/views/404.vue'),
     Home: () => import('@/views/index.vue'),
@@ -23,9 +24,7 @@ const components = {
 
     Message: () => import('@/views/package/message/index.vue'),
     Preview: () => import('@/views/package/preview/index.vue'),
-    FormSearchPath: () => import('@/views/package/formSearchDemo/index.vue'),
-
-    Iframe: () => import('@/layout/iframe/layout.vue')
+    FormSearchPath: () => import('@/views/package/formSearchDemo/index.vue')
 };
 
 export const allowRouter: Array<RouteRecordRaw> = [
@@ -106,6 +105,23 @@ export const allowRouter: Array<RouteRecordRaw> = [
                 path: '/iframe/juejin',
                 component: () => import('@/layout/iframe/layout.vue'),
                 meta: { title: '掘金', link: 'https://juejin.cn/' }
+            }
+        ]
+    },
+    {
+        name: 'Document',
+        path: '/document',
+        component: components['Layout'],
+        meta: { title: 'vue3说明文档', icon: 'my-ico-documentation' },
+        children: [
+            {
+                name: 'RefApi',
+                path: '/document/ref-api',
+                component: () => import('@/layout/iframe/layout.vue'),
+                meta: {
+                    title: 'ref reactive api说明',
+                    link: 'https://www.jianshu.com/p/cfe25e757d0e'
+                }
             }
         ]
     },
