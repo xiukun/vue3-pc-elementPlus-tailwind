@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-22 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-23 18:34:06
+ * @LastEditTime: 2021-02-26 18:06:48
 -->
 <template>
     <div :class="{'show':show}" class="header-search">
@@ -31,10 +31,7 @@ import { useStore } from '@/store/index';
 // fuse.js是轻量级的模糊搜索插件
 import Fuse from 'fuse.js';
 import path from 'path';
-
-const ishttp = (url: string) => {
-    return url.indexOf('http://') !== -1 || url.indexOf('https://') !== -1;
-};
+import { isHttp } from '@/utils/is';
 
 // 初始化Fuse对象
 let fuse: any = undefined;
@@ -71,7 +68,7 @@ const generateRoutes = (routes: any, basePath: string = '/', prefixTitle: Array<
         }
         // 为每个路由创建一个简单的对象
         const data = {
-            path: !ishttp(router.path) ? path.resolve(basePath, router.path) : router.path,
+            path: !isHttp(router.path) ? path.resolve(basePath, router.path) : router.path,
             title: [...prefixTitle]
         };
 
@@ -131,7 +128,7 @@ export default defineComponent({
         onMounted(() => (searchPool = generateRoutes(routes.value)));
 
         let change = (val: { path: any; title: any[] }) => {
-            if (ishttp(val.path)) {
+            if (isHttp(val.path)) {
                 // http(s):// 路径新窗口打开
                 window.open(val.path, '_blank');
             } else {

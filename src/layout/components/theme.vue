@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-09 13:03:24
+ * @LastEditTime: 2021-02-26 18:13:56
 -->
 <template>
     <!-- <i class='el-icon-s-tools text-2xl px-2 py-1 cursor-pointer rounded-l-md' @click='drawer=!drawer' /> -->
@@ -39,10 +39,12 @@
 import { ref, defineComponent, watch, computed } from 'vue';
 import theme from '@/config/theme';
 import { useStore } from '@/store/index';
-
+import { useRoute, useRouter } from 'vue-router';
 export default defineComponent({
     name: 'LayoutTheme',
     setup() {
+        const router = useRouter();
+        const route = useRoute();
         const store = useStore();
         const drawer = computed({
             get() {
@@ -50,15 +52,17 @@ export default defineComponent({
             },
             set(value) {
                 store.dispatch('layout/changeSetting', value);
-            },
+            }
         });
-        const changeTheme = (index: number) =>
-            store.commit('layout/changeTheme', index);
+        const changeTheme = (index: number) => store.commit('layout/changeTheme', index);
         const showTags = ref(store.state.layout.setting.showTags);
 
         watch(
             () => showTags.value,
-            () => store.commit('layout/changeTagsSetting', showTags.value)
+            () => {
+                store.commit('layout/changeTagsSetting', showTags.value);
+                router.replace(`/redirect${route.path}`);
+            }
         );
 
         return {
@@ -66,8 +70,8 @@ export default defineComponent({
             theme,
             changeTheme,
             layout: store.state.layout,
-            showTags,
+            showTags
         };
-    },
+    }
 });
 </script>
