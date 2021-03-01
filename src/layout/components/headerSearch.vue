@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-22 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-26 18:06:48
+ * @LastEditTime: 2021-03-01 09:34:49
 -->
 <template>
     <div :class="{'show':show}" class="header-search">
@@ -200,7 +200,7 @@ export default defineComponent({
         display: inline-block;
         vertical-align: middle;
 
-        ::v-deep .el-input__inner {
+        :deep .el-input__inner {
             border-radius: 0;
             border: 0;
             padding-left: 0;

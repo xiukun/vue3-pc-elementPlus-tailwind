@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-26 15:03:29
+ * @LastEditTime: 2021-03-01 09:34:37
 -->
 <template>
     <el-scrollbar wrap-class='scrollbar-wrapper'>
@@ -51,7 +51,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-::v-deep [class^='my-ico-'],
+:deep [class^='my-ico-'],
 [class*=' my-ico-'] .iconfont {
     font-family: 'iconfont' !important;
     font-size: 16px;

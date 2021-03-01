@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-26 17:58:19
+ * @LastEditTime: 2021-03-01 11:07:41
  */
 import { h } from 'vue';
 import {
@@ -74,7 +74,7 @@ export const allowRouter: Array<RouteRecordRaw> = [
         name: 'Iframe',
         path: '/iframe',
         component: components['Layout'],
-        meta: { title: 'iframe案例', icon: 'my-ico-international' },
+        meta: { title: 'iframe示例', icon: 'my-ico-international' },
         children: [
             {
                 name: 'FrontStandard',
