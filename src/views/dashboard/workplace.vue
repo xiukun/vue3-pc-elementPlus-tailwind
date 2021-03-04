@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:10:38
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-25 18:10:22
+ * @LastEditTime: 2021-03-04 15:35:18
 -->
 <template>
     <div class='content'>
@@ -12,6 +12,27 @@
                 我的github仓库地址
             </el-link>
         </el-tag>
+        <p class="mt-1.5">
+            <el-button @click='dialogShow = true'>
+                打开OpenDialog
+            </el-button>
+        </p>
+        <open-dialog v-model:show='dialogShow' :show='dialogShow' title='操作'>
+            <p style='height: 1200px;'>
+                aaa<br>bbb<br>ccc
+            </p>
+            <template #btn>
+                <el-button>
+                    默认按钮
+                </el-button>
+                <el-button type="primary">
+                    默认按钮2
+                </el-button>
+                <!-- <el-button type="warning">
+                    默认按钮3
+                </el-button> -->
+            </template>
+        </open-dialog>
         <div>
             <div class="flex justify-center">
                 <div v-for="(item, $index) in imgList" :key="item" class="img-item" @click="showHasImg($index)">
@@ -37,6 +58,7 @@ import { createImgPreview } from '@/components/Preview';
 export default defineComponent({
     name: 'Workplace',
     setup() {
+        const dialogShow = ref(false);
         const imgList = ref<string[]>([
             'http://dn-p-tystore.qbox.me/p/chapter/attachment/e_bTeg-weA/EgfWEtftEBfs4BfuEg6uelu_JHH3HUD6I7HMet148BDq5uyiKgem4C2.jpg',
             'http://www.jf258.com/uploads/2014-09-29/012939994.jpg',
@@ -66,6 +88,7 @@ export default defineComponent({
         }
 
         return {
+            dialogShow,
             imgList,
             showHasImg,
             showImg
