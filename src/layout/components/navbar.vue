@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-24 14:04:57
+ * @LastEditTime: 2021-03-04 12:33:17
 -->
 <template>
     <div class='flex items-center px-4'>
@@ -32,19 +32,30 @@
                 <el-dropdown-menu>
                     <el-dropdown-item>
                         <el-link href='https://github.com/xiukun' target='_blank' :underline='false'>
-                            个人中心
+                            {{t('app.userCenter')}}
                         </el-link>
                     </el-dropdown-item>
                     <el-dropdown-item @click="setting = true">
-                        <span>布局设置</span>
+                        <span>{{t('app.setting')}}</span>
                     </el-dropdown-item>
                     <el-dropdown-item divided @click='logout'>
-                        退出登录
+                        {{t('app.logout')}}
                     </el-dropdown-item>
                 </el-dropdown-menu>
             </template>
         </el-dropdown>
-
+        <!-- 切换语言 -->
+        <el-dropdown @command="langCommand" class='el-dropdown-link flex flex-center mx-2'>
+            <span class="el-dropdown-link">
+                <i class="my-ico-language"></i>
+            </span>
+            <template #dropdown>
+                <el-dropdown-menu>
+                    <el-dropdown-item command="zh-cn" :disabled="language==='zh-cn'">cn 简体中文</el-dropdown-item>
+                    <el-dropdown-item command="en" :disabled="language==='en'">en English</el-dropdown-item>
+                </el-dropdown-menu>
+            </template>
+        </el-dropdown>
         <!-- 通知 -->
         <Notice />
         <!-- 头部菜单模糊搜索 -->
@@ -57,10 +68,15 @@
 
 <script lang='ts'>
 import { computed, defineComponent, reactive, watch } from 'vue';
+
 import { useStore } from '@/store/index';
-import { useRoute, RouteLocationNormalizedLoaded } from 'vue-router';
+import { useRoute, RouteLocationNormalizedLoaded, useRouter } from 'vue-router';
+import { useI18n } from '@/hook/useI18n';
+import { useInject } from '@/hook/useIoc';
 import Notice from '@/layout/components/notice.vue';
 import Search from '@/layout/components/headerSearch.vue';
+import db from '@/utils/db';
+
 interface IBreadcrumbList {
     path: string;
     title: string | symbol;
@@ -97,7 +113,11 @@ export default defineComponent({
     },
     setup() {
         const store = useStore();
+        const router = useRouter();
         const route = useRoute();
+        const { locale, t } = useI18n();
+        const { language, u } = useInject();
+        console.log(language);
         const changeCollapsed = () => store.commit('layout/changeCollapsed');
         const logout = () => store.commit('layout/logout');
         //是否显示主题设置
@@ -109,13 +129,24 @@ export default defineComponent({
                 store.dispatch('layout/changeSetting', value);
             }
         });
+        const langCommand = function (command: string): void {
+            locale.value = command;
+            u('language', command);
+
+            // router.replace(`/redirect${route.path}`);
+            router.go(0);
+        };
+
         return {
             menubar: store.state.layout.menubar,
             userInfo: store.state.layout.userInfo,
             changeCollapsed,
             logout,
             ...breadcrumb(route),
-            setting
+            setting,
+            langCommand,
+            language,
+            t
         };
     }
 });

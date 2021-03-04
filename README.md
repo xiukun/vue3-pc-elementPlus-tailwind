@@ -1,5 +1,7 @@
 # vue3demo
 
+## 国际化
+增加i18n插件
 ## 生命周期
 > Options API形式的组件生命周期钩子和Composition API之间的实际对应关系
  * beforeCreate -> setup()
