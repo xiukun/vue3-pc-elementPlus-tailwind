@@ -1,5 +1,7 @@
 # vue3demo
 
+## 分支
+* 增加了*i18n多语言版本分支（基本逻辑写完了，待优化）
 ## 生命周期
 > Options API形式的组件生命周期钩子和Composition API之间的实际对应关系
  * beforeCreate -> setup()
