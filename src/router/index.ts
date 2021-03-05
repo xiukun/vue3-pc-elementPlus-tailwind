@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-01 11:07:41
+ * @LastEditTime: 2021-03-05 14:02:55
  */
 import { h } from 'vue';
 import {
@@ -24,7 +24,8 @@ const components = {
 
     Message: () => import('@/views/package/message/index.vue'),
     Preview: () => import('@/views/package/preview/index.vue'),
-    FormSearchPath: () => import('@/views/package/formSearchDemo/index.vue')
+    FormSearchPath: () => import('@/views/package/formSearchDemo/index.vue'),
+    Graph: () => import('@/views/package/echarts/index.vue')
 };
 
 export const allowRouter: Array<RouteRecordRaw> = [
@@ -67,6 +68,12 @@ export const allowRouter: Array<RouteRecordRaw> = [
                 path: '/package/formSearchDemo',
                 component: components['FormSearchPath'],
                 meta: { title: 'Form查询' }
+            },
+            {
+                name: 'Graph',
+                path: '/package/chart',
+                component: components['Graph'],
+                meta: { title: 'chart图表' }
             }
         ]
     },

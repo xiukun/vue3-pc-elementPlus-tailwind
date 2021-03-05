@@ -13,6 +13,7 @@
     "dependencies": {
         "axios": "^0.21.1",
         "core-js": "^3.6.5",
+        "echarts": "^5.0.2",
         "element-plus": "^1.0.2-beta.31",
         "fuse.js": "^6.4.6",
         "lodash-es": "^4.17.20",
@@ -22,6 +23,7 @@
         "vuex": "4.0.0-rc.2"
     },
     "devDependencies": {
+        "@types/echarts": "^4.9.4",
         "@types/lodash-es": "^4.17.4",
         "@types/mockjs": "^1.0.3",
         "@types/nprogress": "^0.2.0",
