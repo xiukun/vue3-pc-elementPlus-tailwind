@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-03-04 14:49:31
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-04 16:14:50
+ * @LastEditTime: 2021-03-09 11:55:51
 -->
 <template>
     <transition name='el-fade-in'>
@@ -31,16 +31,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onUnmounted, SetupContext } from 'vue';
+import { defineComponent, onUnmounted, PropType, SetupContext } from 'vue';
 export default defineComponent({
     name: 'ComOpenDialog',
     props: {
         show: {
-            type: Boolean,
+            type: Boolean as PropType<boolean>,
             default: false
         },
         title: {
-            type: String,
+            type: String as PropType<String>,
             default: '标题'
         }
     },
