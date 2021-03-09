@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-05 14:02:55
+ * @LastEditTime: 2021-03-09 14:35:27
  */
 import { h } from 'vue';
 import {
@@ -25,7 +25,8 @@ const components = {
     Message: () => import('@/views/package/message/index.vue'),
     Preview: () => import('@/views/package/preview/index.vue'),
     FormSearchPath: () => import('@/views/package/formSearchDemo/index.vue'),
-    Graph: () => import('@/views/package/echarts/index.vue')
+    Graph: () => import('@/views/package/echarts/index.vue'),
+    Editor: () => import('@/views/package/editorDemo/index.vue')
 };
 
 export const allowRouter: Array<RouteRecordRaw> = [
@@ -74,6 +75,12 @@ export const allowRouter: Array<RouteRecordRaw> = [
                 path: '/package/chart',
                 component: components['Graph'],
                 meta: { title: 'chart图表' }
+            },
+            {
+                name: 'Editor',
+                path: '/package/editor',
+                component: components['Editor'],
+                meta: { title: '富文本编辑器' }
             }
         ]
     },
