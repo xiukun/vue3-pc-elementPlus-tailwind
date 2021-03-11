@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-07 10:15:30
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-10 18:17:24
+ * @LastEditTime: 2021-03-11 13:55:40
  */
 import axios, { AxiosRequestConfig, Method } from 'axios';
 import { ElLoading, ElNotification } from 'element-plus';
@@ -74,7 +74,6 @@ instance.interceptors.request.use((config) => {
         config.headers['Access-Token'] = token;
     }
     removePending(config);
-    console.log(pending, 'request...');
     config.cancelToken = new CancelToken((c) => {
         const { url, method, params, data } = config;
         pending.push({ url, method: method, params, data, cancel: c });
@@ -85,7 +84,6 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use((response) => {
     const { data, config } = response;
     removePending(config);
-    console.log(pending, 'response...');
     if (data && data.code !== 200) {
         let title = '请求失败';
         if (data.code === 401) {

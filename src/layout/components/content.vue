@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-26 14:09:25
+ * @LastEditTime: 2021-03-11 13:56:43
 -->
 <template>
     <el-scrollbar>
@@ -36,7 +36,6 @@ export default defineComponent({
             if (obj) {
                 outlink = obj.meta.link || null;
             }
-            console.log(outlink);
             isLink.value = isHttp(outlink);
         };
         isOutLine();

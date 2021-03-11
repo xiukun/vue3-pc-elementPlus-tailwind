@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-03-09 14:27:18
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-09 15:44:39
+ * @LastEditTime: 2021-03-11 13:57:13
 -->
 <template lang="">
     <div class="my-10">
@@ -27,9 +27,7 @@ export default defineComponent({
     setup() {
         const editorRefs: any = ref(null);
         let txt = ref('');
-        onMounted(() => {
-            console.log(txt.value);
-        });
+
         let getContent = () => {
             console.log(txt.value);
         };

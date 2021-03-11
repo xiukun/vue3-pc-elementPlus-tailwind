@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-03 16:48:56
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-09 14:02:25
+ * @LastEditTime: 2021-03-11 13:56:31
 -->
 <template>
     <el-form ref="loginForm" :model="loginUser" :rules="rules" label-width="100px" class="loginForm sign-in-form">
@@ -86,7 +86,6 @@ export default defineComponent({
         };
 
         const toLogin = async () => {
-            console.log(props.loginUser);
             await store.dispatch('layout/login', props.loginUser);
         };
 

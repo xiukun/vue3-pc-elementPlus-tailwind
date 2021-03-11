@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-11 13:41:54
+ * @LastEditTime: 2021-03-11 13:51:59
  */
 import { h } from 'vue';
 import {
@@ -75,7 +75,7 @@ export const allowRouter: Array<RouteRecordRaw> = [
                 name: 'TableDemo',
                 path: '/package/table',
                 component: components['subView'],
-                meta: { title: 'Table Demo' },
+                meta: { title: 'Table Demo', icon: 'my-ico-table' },
                 children: [
                     {
                         name: 'TablePage',
