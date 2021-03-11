@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:10:38
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-04 15:35:18
+ * @LastEditTime: 2021-03-11 09:55:21
 -->
 <template>
     <div class='content'>
@@ -17,7 +17,7 @@
                 打开OpenDialog
             </el-button>
         </p>
-        <open-dialog v-model:show='dialogShow' :show='dialogShow' title='操作'>
+        <com-dialog v-model:show='dialogShow' :show='dialogShow' title='操作'>
             <p style='height: 1200px;'>
                 aaa<br>bbb<br>ccc
             </p>
@@ -32,7 +32,7 @@
                     默认按钮3
                 </el-button> -->
             </template>
-        </open-dialog>
+        </com-dialog>
         <div>
             <div class="flex justify-center">
                 <div v-for="(item, $index) in imgList" :key="item" class="img-item" @click="showHasImg($index)">

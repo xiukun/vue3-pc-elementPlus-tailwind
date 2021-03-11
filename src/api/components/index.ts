@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-07 17:41:06
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-10 18:20:54
+ * @LastEditTime: 2021-03-11 13:20:53
  */
 import { http } from '@/core/ajax';
 import { AxiosPromise } from 'axios';
@@ -14,12 +14,12 @@ export type ITag = '所有' | '家' | '公司' | '学校' | '超市';
 export interface ITableList {
     page: number;
     size: number;
-    tag: ITag;
+    tag?: ITag;
 }
 export function getTableList(tableList: ITableList): AxiosPromise {
     return http({
         url: api.getTableList,
         method: 'get',
-        params: tableList
+        data: tableList
     });
 }

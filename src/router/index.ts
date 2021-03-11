@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-09 14:35:27
+ * @LastEditTime: 2021-03-11 13:41:54
  */
 import { h } from 'vue';
 import {
@@ -15,6 +15,7 @@ import {
 const ParentView = { render: () => h('router-view') };
 const components = {
     Layout: () => import('@/layout/index.vue'),
+    subView: () => import('@/layout/sub-view.vue'),
     Redirect: () => import('@/layout/redirect.vue'),
     Iframe: () => import('@/layout/iframe/layout.vue'),
     Workplace: () => import('@/views/dashboard/workplace.vue'),
@@ -64,11 +65,31 @@ export const allowRouter: Array<RouteRecordRaw> = [
                 component: components['Preview'],
                 meta: { title: '预览图片' }
             },
+            // {
+            //     name: 'FormSearchPath',
+            //     path: '/package/formSearchDemo',
+            //     component: components['FormSearchPath'],
+            //     meta: { title: 'Form查询' }
+            // },
             {
-                name: 'FormSearchPath',
-                path: '/package/formSearchDemo',
-                component: components['FormSearchPath'],
-                meta: { title: 'Form查询' }
+                name: 'TableDemo',
+                path: '/package/table',
+                component: components['subView'],
+                meta: { title: 'Table Demo' },
+                children: [
+                    {
+                        name: 'TablePage',
+                        path: '/package/table/table-page',
+                        component: () => import('@/views/package/tableDemo/tablePage.vue'),
+                        meta: { title: '分页表格1' }
+                    },
+                    {
+                        name: 'TablePage2',
+                        path: '/package/table/page',
+                        component: () => import('@/views/package/tableDemo/page.vue'),
+                        meta: { title: '分页表格2' }
+                    }
+                ]
             },
             {
                 name: 'Graph',

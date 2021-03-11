@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-07 17:41:06
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-10 18:21:28
+ * @LastEditTime: 2021-03-11 12:15:42
  */
 import { http } from '@/core/ajax';
 import { AxiosPromise } from 'axios';
@@ -29,13 +29,13 @@ export function getUser(): AxiosPromise {
     return http({
         url: api.getUser,
         method: 'get',
-        params: { token: store.state.layout.token }
+        data: { token: store.state.layout.token }
     });
 }
 export function getRouterList(): AxiosPromise {
     return http({
         url: api.getRouterList,
         method: 'get',
-        params: { token: store.state.layout.token }
+        data: { token: store.state.layout.token }
     });
 }
