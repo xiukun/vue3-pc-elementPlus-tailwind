@@ -3,10 +3,11 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-11 13:10:33
+ * @LastEditTime: 2021-03-15 17:58:28
  */
 import { createApp } from 'vue';
 import '@/permission';
+import dayjs from 'dayjs';
 import ele from './core/plugins/ele'; // element plus
 import { http } from './core/ajax'; // axios interceptors
 import db from './utils/db'; // localStorage
@@ -41,6 +42,7 @@ app.use(function(vue) {
     vue.config.globalProperties.$test = { test: 'test' }; // 测试
     vue.config.globalProperties.$http = http; // axios操作
     vue.config.globalProperties.$db = db; // localStorage操作
+    vue.config.globalProperties.$dayjs = dayjs;
 });
 ele(app); //引入element plus
 app.use(store)

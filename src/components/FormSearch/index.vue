@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-24 14:18:18
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-15 13:17:12
+ * @LastEditTime: 2021-03-15 18:23:53
 -->
 <template>
     <div class="content">
@@ -56,6 +56,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, reactive, ref } from 'vue';
+import dayjs from 'dayjs';
 import formSearchProps from './props';
 
 //#region 组件change事件集合..
@@ -67,10 +68,18 @@ let changeCascader = (val: any, item: { change: (arg0: any, arg1: any) => void }
 };
 
 let changeTime = (val: any, item: { changeTime: (arg0: any, arg1: any) => void }) => {
-    console.log(item);
-    if (item && item.changeTime) {
-        item.changeTime(val, item);
+    console.log(val, item);
+    if (Array.isArray(val)) {
+        let newArray = val.map((item) => {
+            return dayjs(item).format('YYYY-MM-DD HH:mm:ss');
+        });
+        console.log(newArray);
+        item.changeTime(newArray, item);
     }
+
+    // if (item && item.changeTime) {
+    //     item.changeTime(val, item);
+    // }
 };
 
 let changeSelect = (

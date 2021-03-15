@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-03-15 11:14:24
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-15 13:14:18
+ * @LastEditTime: 2021-03-15 18:24:56
 -->
 <template>
     <div>
@@ -19,12 +19,16 @@
     </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref, reactive, unref } from 'vue';
+import { defineComponent, ref, reactive, unref, getCurrentInstance } from 'vue';
 import FormSearch from '@/components/FormSearch/index.vue';
+
 export default defineComponent({
     name: 'form-search-demo2',
     components: { FormSearch },
     setup() {
+        // const { proxy } = getCurrentInstance() as any;
+        // console.log(proxy.$dayjs());
+        // console.log($dayjs());
         let formSearchRef = ref(null);
         let value1 = ['2020-01-01 00:00:00', '2020-06-01 23:59:59'];
         let searchConfig = {
@@ -102,7 +106,7 @@ export default defineComponent({
                     type: 'datetimerange',
                     placeholder: '下单日期',
                     label: '下单日期:',
-                    change: (val: any, item: any, form: any) => {
+                    changeTime: (val: any, item: any, form: any) => {
                         console.log(val, item, form);
                     }
                 }
