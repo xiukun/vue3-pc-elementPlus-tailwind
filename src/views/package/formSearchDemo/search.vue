@@ -1,38 +1,32 @@
 <!--
  * @Description: 
  * @Autor: xiukun@herry
- * @Date: 2021-02-24 15:53:05
+ * @Date: 2021-03-15 11:14:24
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-15 12:13:24
+ * @LastEditTime: 2021-03-15 13:14:18
 -->
 <template>
-    <br>
     <div>
         <form-search ref="formSearchRef" :rules="rules" :props="searchConfig.props" :form="filterForm" :label-width="searchConfig.labelWidth" :inline="true">
             <template #search>
-                <el-form-item style="float:right;right:20px;">
-                    <el-button type="primary" icon="el-icon-search" @click.stop.prevent="searchBtn">查询</el-button>
-                    <!-- <el-button type="warning" icon="el-icon-refresh">重置</el-button> -->
-                    <!-- <el-button type="info" icon="el-icon-plus">添加</el-button>
+                <el-button type="primary" icon="el-icon-search" @click.stop.prevent="searchBtn">查询</el-button>
+                <!-- <el-button type="warning" icon="el-icon-refresh">重置</el-button> -->
+                <!-- <el-button type="info" icon="el-icon-plus">添加</el-button>
                     <el-button>文本说明</el-button> -->
-                    <el-button icon="el-icon-sort" @click="gg(formSearchRef)" circle></el-button>
-                </el-form-item>
+                <el-button icon="el-icon-sort" @click="gg(formSearchRef)" circle></el-button>
             </template>
         </form-search>
     </div>
 </template>
-
 <script lang="ts">
-import { defineComponent, ref, unref, reactive, onMounted } from 'vue';
+import { defineComponent, ref, reactive, unref } from 'vue';
 import FormSearch from '@/components/FormSearch/index.vue';
-
 export default defineComponent({
-    name: 'form-search-demo',
+    name: 'form-search-demo2',
     components: { FormSearch },
     setup() {
         let formSearchRef = ref(null);
-        let value1 = [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)];
-        let selectData: { value: number; label: string }[] | undefined = undefined;
+        let value1 = ['2020-01-01 00:00:00', '2020-06-01 23:59:59'];
         let searchConfig = {
             labelWidth: '120px',
             props: [
@@ -101,13 +95,7 @@ export default defineComponent({
                         console.log(val, item, form);
                     }
                 },
-                {
-                    tag: 'select',
-                    prop: 'p8',
-                    placeholder: '选择订单来源',
-                    options: undefined,
-                    label: '订单来源:'
-                },
+
                 {
                     tag: 'datePicker',
                     prop: 'p9',
@@ -131,7 +119,7 @@ export default defineComponent({
             p6: '',
             p7: '',
             p8: '',
-            p9: []
+            p9: value1
         });
         let rules = reactive({
             p1: [
@@ -142,55 +130,13 @@ export default defineComponent({
                 }
             ]
         });
-        onMounted(() => {
-            selectData = [
-                { value: 0, label: '鲜活go' },
-                { value: 2, label: '电商' },
-                { value: 3, label: '征订' },
-                { value: 4, label: '奶站' },
-                { value: 5, label: '牛奶钱包' },
-                { value: 6, label: '送奶工App' },
-                { value: 70, label: '电话' },
-                { value: 80, label: '机构' },
-                { value: 100, label: '鲜生活' },
-                { value: 110, label: '鲜小厨' },
-                { value: 120, label: '小程序' },
-                { value: 130, label: '淘宝' },
-                { value: 140, label: '拼多多' },
-                { value: 150, label: '天猫' },
-                { value: 160, label: '京东' },
-                { value: 170, label: '总部店铺' },
-                { value: 180, label: '牛奶钱包' },
-                { value: 190, label: '千丁' },
-                { value: 200, label: '鑫划算' },
-                { value: 210, label: '琥珀亲子' },
-                { value: 220, label: '星life' },
-                { value: 230, label: '龙湖享家' },
-                { value: 240, label: '业点点' },
-                { value: 250, label: '苏宁易购' },
-                { value: 260, label: '万科' },
-                { value: 270, label: '生活记' }
-            ];
-            //p8  select延迟赋值
-            setTimeout(() => {
-                for (let i = searchConfig.props.length - 1; i >= 0; i--) {
-                    if (searchConfig.props[i].prop === 'p8') {
-                        searchConfig.props[i].options = selectData;
-                        console.log(searchConfig.props);
-                        return;
-                    }
-                    console.log(searchConfig.props[i].prop);
-                }
-            }, 2000);
-        });
-
         let searchBtn = () => {
-            console.log(filterForm.value);
+            console.log(filterForm);
         };
         let gg = (formSearchRef: any) => {
             unref(formSearchRef).toggleBtn();
         };
-        return { value1, filterForm, rules, searchConfig, formSearchRef, searchBtn, gg };
+        return { filterForm, rules, searchConfig, formSearchRef, searchBtn, gg };
     }
 });
 </script>

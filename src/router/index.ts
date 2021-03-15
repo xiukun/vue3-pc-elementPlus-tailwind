@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-02 18:20:45
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-11 13:51:59
+ * @LastEditTime: 2021-03-15 11:16:49
  */
 import { h } from 'vue';
 import {
@@ -25,7 +25,7 @@ const components = {
 
     Message: () => import('@/views/package/message/index.vue'),
     Preview: () => import('@/views/package/preview/index.vue'),
-    FormSearchPath: () => import('@/views/package/formSearchDemo/index.vue'),
+    FormSearchPath: () => import('@/views/package/formSearchDemo/search.vue'),
     Graph: () => import('@/views/package/echarts/index.vue'),
     Editor: () => import('@/views/package/editorDemo/index.vue')
 };
@@ -65,12 +65,12 @@ export const allowRouter: Array<RouteRecordRaw> = [
                 component: components['Preview'],
                 meta: { title: '预览图片' }
             },
-            // {
-            //     name: 'FormSearchPath',
-            //     path: '/package/formSearchDemo',
-            //     component: components['FormSearchPath'],
-            //     meta: { title: 'Form查询' }
-            // },
+            {
+                name: 'FormSearchPath',
+                path: '/package/formSearchDemo',
+                component: components['FormSearchPath'],
+                meta: { title: 'Form查询' }
+            },
             {
                 name: 'TableDemo',
                 path: '/package/table',

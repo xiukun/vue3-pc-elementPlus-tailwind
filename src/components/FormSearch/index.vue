@@ -3,11 +3,11 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-24 14:18:18
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-11 13:42:05
+ * @LastEditTime: 2021-03-15 13:17:12
 -->
 <template>
     <div class="content">
-        <el-form ref="formRef" :model="form" :rules="rules" :status-icon="StatusIcon" :label-width="LabelWidth" :label-position="LabelPosition" :inline="inline" @submit.prevent>
+        <el-form ref="formRef" style="overflow: auto;" :model="form" :rules="rules" :status-icon="StatusIcon" :label-width="LabelWidth" :label-position="LabelPosition" :inline="inline" @submit.prevent>
             <slot name="header" />
             <template v-for="(key,index) in attrs.data">
                 <el-form-item :key="key.prop" :label="key.label" :prop="key.prop" v-if="!key.hide" v-show="index<count">
@@ -47,7 +47,9 @@
                     </el-switch>
                 </el-form-item>
             </template>
-            <slot name="search" />
+            <el-form-item style="float:right;right:20px;">
+                <slot name="search" />
+            </el-form-item>
         </el-form>
     </div>
 </template>
@@ -120,3 +122,9 @@ export default defineComponent({
     }
 });
 </script>
+<style lang="scss" scoped>
+.content {
+    background-color: #fff;
+    padding-top: 15px;
+}
+</style>
