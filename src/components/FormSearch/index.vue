@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-24 14:18:18
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-15 18:23:53
+ * @LastEditTime: 2021-03-17 11:47:08
 -->
 <template>
     <div class="content">
@@ -56,6 +56,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, reactive, ref } from 'vue';
+import { resetFields } from '@/utils/formExtend';
 import dayjs from 'dayjs';
 import formSearchProps from './props';
 
@@ -103,13 +104,18 @@ export default defineComponent({
     name: 'ComFormSearch',
     props: formSearchProps,
     setup(props) {
-        let expand = ref(true); //默认展开
+        const formRef = ref(null);
+        let expand = ref(true); // 默认展开
         let attrs = reactive({ data: props.props });
         let count = computed(() => (expand.value ? attrs.data.length : props.showCol));
-        //开合切换按钮
+        // 开合切换按钮
         let toggleBtn = () => {
             expand.value = !expand.value;
             console.log(expand.value);
+        };
+        // 重置form
+        const resetField = () => {
+            resetFields(formRef);
         };
         let refresh = (data: { data: unknown[] }) => {
             attrs = data;
@@ -120,10 +126,12 @@ export default defineComponent({
         };
 
         return {
+            formRef,
             expand,
             attrs,
             count,
             toggleBtn,
+            resetField,
             refresh,
             isShow,
             ...changeFn

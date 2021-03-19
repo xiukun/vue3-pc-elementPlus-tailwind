@@ -3,14 +3,14 @@
  * @Autor: xiukun@herry
  * @Date: 2021-03-15 11:14:24
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-15 18:24:56
+ * @LastEditTime: 2021-03-19 14:47:56
 -->
 <template>
     <div>
         <form-search ref="formSearchRef" :rules="rules" :props="searchConfig.props" :form="filterForm" :label-width="searchConfig.labelWidth" :inline="true">
             <template #search>
                 <el-button type="primary" icon="el-icon-search" @click.stop.prevent="searchBtn">查询</el-button>
-                <!-- <el-button type="warning" icon="el-icon-refresh">重置</el-button> -->
+                <el-button @click="reset(formSearchRef)" type="warning" icon="el-icon-refresh">重置</el-button>
                 <!-- <el-button type="info" icon="el-icon-plus">添加</el-button>
                     <el-button>文本说明</el-button> -->
                 <el-button icon="el-icon-sort" @click="gg(formSearchRef)" circle></el-button>
@@ -114,7 +114,7 @@ export default defineComponent({
             optBtns: []
         };
 
-        let filterForm = ref({
+        let filterForm = reactive({
             p1: '',
             p2: '',
             p3: '',
@@ -140,7 +140,10 @@ export default defineComponent({
         let gg = (formSearchRef: any) => {
             unref(formSearchRef).toggleBtn();
         };
-        return { filterForm, rules, searchConfig, formSearchRef, searchBtn, gg };
+        const reset = (formSearchRef: any) => {
+            unref(formSearchRef).resetField();
+        };
+        return { filterForm, rules, searchConfig, formSearchRef, searchBtn, gg, reset };
     }
 });
 </script>
