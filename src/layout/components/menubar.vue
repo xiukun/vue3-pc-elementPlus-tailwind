@@ -3,18 +3,31 @@
  * @Autor: xiukun@herry
  * @Date: 2021-02-08 09:35:16
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-03-01 09:34:37
+ * @LastEditTime: 2021-05-06 19:39:30
 -->
 <template>
-    <el-scrollbar wrap-class='scrollbar-wrapper'>
-        <el-menu :default-active='activeMenu' :collapse='menubar.status === 1 || menubar.status === 3' class='el-menu-vertical-demo' :class='{ 
+  <el-scrollbar wrap-class='scrollbar-wrapper'>
+    <el-menu
+      :default-active='activeMenu'
+      :collapse='menubar.status === 1 || menubar.status === 3'
+      class='el-menu-vertical-demo'
+      :class='{ 
                 "w-64": menubar.status === 0 || menubar.status === 2, 
                 "w-0": menubar.status === 3, 
                 "w-16": menubar.status === 1, 
-            }' :collapse-transition='false' :unique-opened='true' @select='onOpenChange'>
-            <menubar-item v-for='v in menuList' :key='v.path' :index='v.path' :menu-list='v' />
-        </el-menu>
-    </el-scrollbar>
+            }'
+      :collapse-transition='false'
+      :unique-opened='true'
+      @select='onOpenChange'
+    >
+      <menubar-item
+        v-for='v in menuList'
+        :key='v.path'
+        :index='v.path'
+        :menu-list='v'
+      />
+    </el-menu>
+  </el-scrollbar>
 </template>
 
 <script lang='ts'>
@@ -26,7 +39,7 @@ import { useRoute, useRouter } from 'vue-router';
 export default defineComponent({
     name: 'LayoutMenubar',
     components: {
-        MenubarItem
+        MenubarItem,
     },
     setup() {
         const store = useStore();
@@ -44,15 +57,14 @@ export default defineComponent({
             menubar,
             menuList,
             activeMenu,
-            onOpenChange
+            onOpenChange,
         };
-    }
+    },
 });
 </script>
 
 <style lang="scss" scoped>
-:deep [class^='my-ico-'],
-[class*=' my-ico-'] .iconfont {
+:deep([class^='my-ico-'], [class*=' my-ico-'] .iconfont) {
     font-family: 'iconfont' !important;
     font-size: 16px;
     font-style: normal;

@@ -6,7 +6,7 @@
  * @LastEditTime: 2021-02-24 12:26:28
  */
 
-import { VNode } from 'vue';
+import { VNode } from 'vue'
 
 declare type IMessageOptions = {
     customClass?: string;

@@ -7,7 +7,7 @@
  */
 
 // 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
-import * as echarts from 'echarts/core';
+import * as echarts from 'echarts/core'
 
 // 引入图表，图表后缀都为 Chart
 import {
@@ -20,7 +20,7 @@ import {
     LineSeriesOption,
     PieSeriesOption,
     RadarSeriesOption
-} from 'echarts/charts';
+} from 'echarts/charts'
 // 引入提示框，标题，直角坐标系组件，组件后缀都为 Component
 import {
     TitleComponent,
@@ -30,9 +30,9 @@ import {
     // 组件类型
     TitleComponentOption,
     GridComponentOption
-} from 'echarts/components';
+} from 'echarts/components'
 // 引入 Canvas或Svg 渲染器，注意至少引入CanvasRenderer或者SVGRenderer其一，是必须的一步
-import { CanvasRenderer, SVGRenderer } from 'echarts/renderers';
+import { CanvasRenderer, SVGRenderer } from 'echarts/renderers'
 
 // 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型
 type ComposeOption = echarts.ComposeOption<
@@ -55,6 +55,6 @@ echarts.use([
     RadarComponent,
     CanvasRenderer,
     SVGRenderer
-]);
+])
 
-export { ComposeOption, echarts };
+export { ComposeOption, echarts }

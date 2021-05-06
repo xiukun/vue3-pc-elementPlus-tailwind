@@ -5,23 +5,23 @@
  * @LastEditors: xiukun@herry
  * @LastEditTime: 2021-03-15 17:58:28
  */
-import { createApp } from 'vue';
-import '@/permission';
-import dayjs from 'dayjs';
-import ele from './core/plugins/ele'; // element plus
-import { http } from './core/ajax'; // axios interceptors
-import db from './utils/db'; // localStorage
-import App from './App.vue';
-import direct from '@/directive';
-import router from './router';
-import { store } from './store';
-import '@/mock/index';
+import { createApp } from 'vue'
+import '@/permission'
+import dayjs from 'dayjs'
+import ele from './core/plugins/ele' // element plus
+import { http } from './core/ajax' // axios interceptors
+import db from './utils/db' // localStorage
+import App from './App.vue'
+import direct from '@/directive'
+import router from './router'
+import { store } from './store'
+import '@/mock/index'
 
 // 区局注册组件
-import OpenDialog from './components/OpenDialog/index.vue';
-import ComTable from './components/Table/index.vue';
+import OpenDialog from './components/OpenDialog/index.vue'
+import ComTable from './components/Table/index.vue'
 
-import '@/assets/styles/index.scss';
+import '@/assets/styles/index.scss'
 
 // 对vue进行类型补充说明
 /* eslint-disable */

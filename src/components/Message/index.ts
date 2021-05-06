@@ -6,30 +6,30 @@
  * @LastEditTime: 2021-02-24 12:32:37
  */
 
-import { ElMessage } from 'element-plus';
-import { MessageParams, TypeVal } from './types';
-let messagInstance: any | null = null;
+import { ElMessage } from 'element-plus'
+import { MessageParams, TypeVal } from './types'
+let messagInstance: any | null = null
 
 const resetMessage = (options: MessageParams) => {
     // message实例对象存在，则关闭
     if (messagInstance) {
-        messagInstance.close();
+        messagInstance.close()
     }
-    messagInstance = ElMessage(options);
-};
+    messagInstance = ElMessage(options)
+}
 
-const typeData: Array<TypeVal> = ['error', 'success', 'info', 'warning'];
+const typeData: Array<TypeVal> = ['error', 'success', 'info', 'warning']
 
 typeData.forEach((type: TypeVal) => {
     resetMessage[type] = (options: MessageParams) => {
         if (typeof options === 'string') {
             options = {
                 message: options
-            };
+            }
         }
-        options.type = type;
-        return resetMessage(options);
-    };
-});
+        options.type = type
+        return resetMessage(options)
+    }
+})
 
-export const Message = resetMessage as any;
+export const Message = resetMessage as any

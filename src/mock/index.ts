@@ -5,68 +5,68 @@
  * @LastEditors: xiukun@herry
  * @LastEditTime: 2021-03-11 13:24:49
  */
-import { mock, Random } from 'mockjs';
-import { login, setToken, checkToken, getUser, getRoute } from '@/mock/response';
+import { mock, Random } from 'mockjs'
+import { login, setToken, checkToken, getUser, getRoute } from '@/mock/response'
 
 interface IReq {
     body: any;
 }
 mock('/login', 'post', (req: IReq) => {
-    const { email, password } = JSON.parse(req.body);
+    const { email, password } = JSON.parse(req.body)
     if (login(email, password)) {
         return mock({
             code: 200,
             message: '登陆成功',
             Data: setToken(email)
-        });
+        })
     }
     return mock({
         code: 401,
         message: '用户名或密码错误',
         Data: ''
-    });
-});
+    })
+})
 
 mock('/getUser', 'get', (req: IReq) => {
-    const { token } = JSON.parse(req.body);
-    const userName = checkToken(token);
+    const { token } = JSON.parse(req.body)
+    const userName = checkToken(token)
     if (!userName) {
         return mock({
             code: 401,
             message: '身份认证失败',
             Data: ''
-        });
+        })
     }
     return mock({
         code: 200,
         message: '',
         Data: getUser(userName)
-    });
-});
+    })
+})
 
 mock('/getRoute', 'get', (req: IReq) => {
-    const { token } = JSON.parse(req.body);
-    const userName = checkToken(token);
+    const { token } = JSON.parse(req.body)
+    const userName = checkToken(token)
     if (!userName) {
         return mock({
             code: 401,
             message: '身份认证失败',
             Data: ''
-        });
+        })
     }
     return mock({
         code: 200,
         Data: getRoute(userName),
         message: ''
-    });
-});
+    })
+})
 
 Random.extend({
     tag: function() {
-        const tag = ['家', '公司', '学校', '超市'];
-        return this.pick(tag);
+        const tag = ['家', '公司', '学校', '超市']
+        return this.pick(tag)
     }
-});
+})
 interface ITableList {
     list: Array<{
         date: string;
@@ -89,10 +89,10 @@ const tableList: ITableList = mock({
             amt: () => Number(Random.float(-100000, 100000).toFixed(2))
         }
     ]
-});
+})
 mock('/getTableList', 'get', (req: IReq) => {
-    const { page, size, tag } = JSON.parse(req.body);
-    const data = tag === '所有' ? tableList.list : tableList.list.filter((v) => v.tag === tag);
+    const { page, size, tag } = JSON.parse(req.body)
+    const data = tag === '所有' ? tableList.list : tableList.list.filter((v) => v.tag === tag)
     return mock({
         code: 200,
         Data: {
@@ -100,5 +100,5 @@ mock('/getTableList', 'get', (req: IReq) => {
             total: data.length
         },
         message: ''
-    });
-});
+    })
+})

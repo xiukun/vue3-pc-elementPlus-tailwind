@@ -5,11 +5,11 @@
  * @LastEditors: xiukun@herry
  * @LastEditTime: 2021-03-11 13:20:53
  */
-import { http } from '@/core/ajax';
-import { AxiosPromise } from 'axios';
+import { http } from '@/core/ajax'
+import { AxiosPromise } from 'axios'
 const api = {
     getTableList: '/getTableList'
-};
+}
 export type ITag = '所有' | '家' | '公司' | '学校' | '超市';
 export interface ITableList {
     page: number;
@@ -21,5 +21,5 @@ export function getTableList(tableList: ITableList): AxiosPromise {
         url: api.getTableList,
         method: 'get',
         data: tableList
-    });
+    })
 }

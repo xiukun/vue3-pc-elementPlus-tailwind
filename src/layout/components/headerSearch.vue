@@ -6,12 +6,33 @@
  * @LastEditTime: 2021-03-01 09:34:49
 -->
 <template>
-    <div :class="{'show':show}" class="header-search">
-        <i class="el-icon-search search-icon" @click.stop="click"></i>
-        <el-select ref="headerSearchSelect" v-model="search" :remote-method="querySearch" filterable default-first-option remote placeholder="搜索菜单" class="header-search-select" @change="change">
-            <el-option v-for="option in options.data" :key="option.item.path" :value="option.item" :label="option.item.title.join(' > ')" />
-        </el-select>
-    </div>
+  <div
+    :class="{'show':show}"
+    class="header-search"
+  >
+    <i
+      class="el-icon-search search-icon"
+      @click.stop="click"
+    ></i>
+    <el-select
+      ref="headerSearchSelect"
+      v-model="search"
+      :remote-method="querySearch"
+      filterable
+      default-first-option
+      remote
+      placeholder="搜索菜单"
+      class="header-search-select"
+      @change="change"
+    >
+      <el-option
+        v-for="option in options.data"
+        :key="option.item.path"
+        :value="option.item"
+        :label="option.item.title.join(' > ')"
+      />
+    </el-select>
+  </div>
 </template>
 
 <script lang="ts">
@@ -200,7 +221,7 @@ export default defineComponent({
         display: inline-block;
         vertical-align: middle;
 
-        :deep .el-input__inner {
+        :deep(.el-input__inner) {
             border-radius: 0;
             border: 0;
             padding-left: 0;

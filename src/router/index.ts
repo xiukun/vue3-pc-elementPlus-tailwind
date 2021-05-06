@@ -5,14 +5,14 @@
  * @LastEditors: xiukun@herry
  * @LastEditTime: 2021-03-15 11:16:49
  */
-import { h } from 'vue';
+import { h } from 'vue'
 import {
     createRouter,
     // createWebHistory,
     createWebHashHistory,
     RouteRecordRaw
-} from 'vue-router';
-const ParentView = { render: () => h('router-view') };
+} from 'vue-router'
+const ParentView = { render: () => h('router-view') }
 const components = {
     Layout: () => import('@/layout/index.vue'),
     subView: () => import('@/layout/sub-view.vue'),
@@ -28,7 +28,7 @@ const components = {
     FormSearchPath: () => import('@/views/package/formSearchDemo/search.vue'),
     Graph: () => import('@/views/package/echarts/index.vue'),
     Editor: () => import('@/views/package/editorDemo/index.vue')
-};
+}
 
 export const allowRouter: Array<RouteRecordRaw> = [
     {
@@ -189,11 +189,11 @@ export const allowRouter: Array<RouteRecordRaw> = [
         redirect: '/404',
         component: ParentView
     }
-];
+]
 
 const router = createRouter({
     history: createWebHashHistory(),
     routes: allowRouter
-});
+})
 
-export default router;
+export default router
